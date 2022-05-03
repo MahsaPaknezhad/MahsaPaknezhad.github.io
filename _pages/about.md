@@ -1,13 +1,13 @@
 ---
 permalink: /
+title: "Welcome to My Page"
+title: "
 excerpt: "About me"
 author_profile: true
 redirect_from: 
   - /about/
   - /about.html
 ---
-
-## Welcome to My Page
 
 I am a senior research fellow in developing and applying ML and AI algorithms to medical image anaylsis. In this GitHub repository, I put some of my code for different projects I have been working on. 
 
