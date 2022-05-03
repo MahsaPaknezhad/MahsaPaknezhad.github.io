@@ -81,7 +81,7 @@ analytics:
 # Site Author
 author:
   name             : "Mahsa Paknezhad"
-  avatar           : "profile.png"
+  avatar           : "/images/MyPhoto.png"
   bio              : "I am a senior research fellow in applying ML and AL algorithms for medical image analysis"
   location         : "Australia"
   employer         :
