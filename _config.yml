@@ -81,7 +81,7 @@ analytics:
 # Site Author
 author:
   name             : "Mahsa Paknezhad"
-  avatar           : "MyPhoto.jpg"
+  avatar           : "MyPhoto_small.jpg"
   bio              : "I develop and apply ML and AI algorithms to medical image analysis problems"
   location         : "Australia"
   employer         :
