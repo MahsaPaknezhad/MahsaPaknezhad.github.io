@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "Mahsa Paknezhad's GitHub Repository"
+title: ""
 excerpt: "About me"
 author_profile: true
 redirect_from: 
