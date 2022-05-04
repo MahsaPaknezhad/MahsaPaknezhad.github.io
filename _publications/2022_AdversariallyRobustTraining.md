@@ -3,7 +3,7 @@ title: "Explaining adversarial vulnerability by a data sparsity hypothesis"
 collection: publications
 permalink: /publication/2022_AdversariallyRobustTraining
 excerpt: ''
-date: 2022
+date: 13-02-2022
 venue: 'Neurocomputing'
 paperurl: 'http://MahsaPaknezhad.github.io/files/AdversariallyRobustTraining.pdf'
 citation: 'Paknezhad, M., Ngo, C. P., Winarto, A. A., Cheong, A., Beh, C. Y., Wu, J., Lee, H. K.: Explaining adversarial vulnerability by a data sparsity hypothesis, <i>Neurocomputing<i>. (2022).'
