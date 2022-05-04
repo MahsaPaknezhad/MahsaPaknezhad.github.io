@@ -1,7 +1,7 @@
 ---
 title: "Explaining adversarial vulnerability by a data sparsity hypothesis"
 collection: publications
-permalink: /publication/AdversariallyRobustTraining
+permalink: /publication/2022_AdversariallyRobustTraining
 excerpt: ''
 date: 2022
 venue: 'Neurocomputing'
