@@ -85,10 +85,10 @@ author:
   bio              : "I develop and apply ML and AI algorithms to medical image analysis problems"
   location         : "Australia"
   employer         :
-  pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
-  googlescholar    : "http://yourfullgooglescholarurl.com"
+  pubmed           : 
+  googlescholar    : "https://scholar.google.com/citations?user=x6P9IeYAAAAJ&hl=en"
   email            :
-  researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
+  researchgate     :  "https://www.researchgate.net/profile/Mahsa-Paknezhad"
   uri              :
   bitbucket        :
   codepen          :
