@@ -1,7 +1,7 @@
 ---
 title: "Atopic dermatitis classification models of 3D optoacoustic mesoscopic images."
 collection: publications
-permalink: /publication/AtopicDermatitis
+permalink: /publication/2021_AtopicDermatitis
 excerpt: ''
 date: 2021
 venue: 'European Conference on Biomedical Optics'
