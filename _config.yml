@@ -7,11 +7,11 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Mahsa Paknezhad's GitHub Repository"
+title                    : "Mahsa Paknezhad GitHub Repository"
 title_separator          : "-"
 name                     : &name "Mahsa Paknezhad"
-description              : &description "personal description"
-url                      : "https://MahsaPaknezhad.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+description              : &description ""
+url                      : https://MahsaPaknezhad.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "MahsaPaknezhad/MahsaPaknezhad.github.io"
 teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
@@ -109,7 +109,7 @@ author:
   stackoverflow    : # http://stackoverflow.com/users/123456/username
   steam            :
   tumblr           :
-  twitter          : #"replacethistwitterhandle"
+  twitter          : "MahsaPaknezhad"
   vine             :
   weibo            :
   xing             :
