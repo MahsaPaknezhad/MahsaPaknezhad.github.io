@@ -11,4 +11,4 @@ citation: 'Paknezhad, M., Marchesseau, S. and Brown, M.S.: Automatic basal slice
 
 [Download paper here](http://MahsaPaknezhad.github.io/files/AutomaticBasalSliceDetection.pdf)
 
-Recommended citation: Paknezhad, M., Marchesseau, S. and Brown, M.S.: Automatic basal slice detection for cardiac analysis. <i>Journal of Medical Imaging<i>, 3(3) (2016).
+Recommended citation: Paknezhad, M., Marchesseau, S. and Brown, M.S. "Automatic basal slice detection for cardiac analysis." <i>Journal of Medical Imaging</i>, 3(3) (2016).
