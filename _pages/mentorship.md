@@ -14,17 +14,17 @@ Mentorship
 
 **PhD students:**
 
-Aug 2018 - Dec 2020		So Jeong Park, Bioinformatics Institute, 		
+Aug 2018 - Dec 2020		So Jeong Park, Bioinformatics Institute		
 
 **Trainees:**
 
-Aug 2020 - Jun 2021		Hamsawardhini Rengarajan, National University of Singapore,			
+Aug 2020 - Jun 2021		Hamsawardhini Rengarajan, National University of Singapore			
 
 **Undergraduate students:**
 
-Jul   2019 - Jan  2020	Mahshid Soleymani, Ferdowsi University of Mashhad, 
+Jul   2019 - Jan  2020	Mahshid Soleymani, Ferdowsi University of Mashhad
 			
-Apr 2019 - Aug 2019		Clara Lim, Singapore University of Technology and Design, 		
+Apr 2019 - Aug 2019		Clara Lim, Singapore University of Technology and Design 		
  	
 **A level students:**
 
