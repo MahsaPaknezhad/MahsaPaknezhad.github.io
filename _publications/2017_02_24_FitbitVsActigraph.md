@@ -6,11 +6,11 @@ excerpt: ''
 date: 2017-02-24
 venue: 'Plos One'
 paperurl: 'http://MahsaPaknezhad.github.io/files/FitbitVsActigraph.pdf'
-citation: 'Chu, A.H., Ng, S.H., Paknezhad, M. , Gauterin, A., Koh, D., Brown, M. S. and Muller-Riemenschneider, F.: Comparison of wrist-worn Fitbit Flex and waist-worn ActiGraph for measuring steps in free-living adults. <i>PloS one<i>, 12(2) (2017).'
+citation: 'Chu, A.H., Ng, S.H., Paknezhad, M. , Gauterin, A., Koh, D., Brown, M. S. and Muller-Riemenschneider, F. &quot Comparison of wrist-worn Fitbit Flex and waist-worn ActiGraph for measuring steps in free-living adults &quot <i>PloS one</i>. 12(2) (2017).'
 ---
 
 [Download paper here](http://MahsaPaknezhad.github.io/files/FitbitVsActigraph.pdf)
 
-Recommended citation: Chu, A.H., Ng, S.H., Paknezhad, M. , Gauterin, A., Koh, D., Brown, M. S. and Muller-Riemenschneider, F.: Comparison of wrist-worn Fitbit Flex and waist-worn ActiGraph for measuring steps in free-living adults. <i>PloS one<i>, 12(2) (2017).
+Recommended citation: Chu, A.H., Ng, S.H., Paknezhad, M. , Gauterin, A., Koh, D., Brown, M. S. and Muller-Riemenschneider, F. "Comparison of wrist-worn Fitbit Flex and waist-worn ActiGraph for measuring steps in free-living adults." <i>PloS one</i>. 12(2) (2017).
 
 
