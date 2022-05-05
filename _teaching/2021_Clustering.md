@@ -1,20 +1,11 @@
 ---
-title: "Teaching experience 2"
+title: "Clustering"
 collection: teaching
-type: "Workshop"
-permalink: /teaching/2015-spring-teaching-1
-venue: "University 1, Department"
-date: 2015-01-01
-location: "City, Country"
+type: "Course for ASTAR staff and University Students"
+permalink: /teaching/2021_Clustering
+venue: "ASTAR"
+date: 2021-03-01
+location: "Singapore"
 ---
 
-This is a description of a teaching experience. You can use markdown like any other post.
-
-Heading 1
-======
-
-Heading 2
-======
-
-Heading 3
-======
+As part of the Introduction to Data Science course for a class of 130 students. Also, organized a coding workshop for clustering algorithms using Colab. Mentored a group of 3 students for their course project.

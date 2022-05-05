@@ -1,20 +1,11 @@
 ---
-title: "Teaching experience 2"
+title: "Image Registration and Adversarial Robustness"
 collection: teaching
-type: "Workshop"
-permalink: /teaching/2015-spring-teaching-1
-venue: "University 1, Department"
-date: 2015-01-01
-location: "City, Country"
+type: "Course for ASTAR Staff and University Students"
+permalink: /teaching/2021_ImageRegistration_AdvRobustness
+venue: "ASTAR"
+date: 2021-08-01
+location: "Singapore"
 ---
 
-This is a description of a teaching experience. You can use markdown like any other post.
-
-Heading 1
-======
-
-Heading 2
-======
-
-Heading 3
-======
+As part of the AI + Biomedical Image Analysis and Signal Processing course. Covered DL algorithms for medical image registration and training adversarially robust DL models.
