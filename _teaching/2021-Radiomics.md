@@ -8,4 +8,4 @@ date: 2021-02-01
 location: "Singapore"
 ---
 
-As part of the &quot; Practical AI for Clinicians $quot; course in Introduction to Bioinformatics and Data Analytics Program. For a class of 40 students. Also mentored a team of 3 participants. 
+As part of the Practical AI for Clinicians course in Introduction to Bioinformatics and Data Analytics Program. For a class of 40 students. Also mentored a team of 3 participants. 
