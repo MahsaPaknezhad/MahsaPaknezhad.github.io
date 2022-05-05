@@ -79,3 +79,17 @@ Tensorflow, Pytorch, Matplotlib, Scikit-Learn, Openslide, OpenCV, PIL, SciPy, Fo
 Tools
 ======
 Visual Studio C++, Segment, Paraview, MedInria, ImageJ, Eclipse, WEKA, Photoshop, Dreamweaver
+
+
+Awards
+=====
+
+**2021**	Receiver of AI3 HTPO seed fund grant, A*STAR
+**2016**	Medical Image Processing and Computer Assisted Intervention Travel Award
+**2013**	A*STAR Singapore International Graduate Award for PhD
+**2010**	Member of the Office of Talented Students, Shiraz University of Technology
+**2009**	Top Student Award, Shiraz University of Technology
+**2009**	Member of the Office of Talented Students, Shiraz University of Technology
+**2008**	Top Student Award, Shiraz University of Technology
+**2008**	Member of the Office of Talented Students, Shiraz University of Technology
+**2007**	Top Student Award, Shiraz University of Technology
