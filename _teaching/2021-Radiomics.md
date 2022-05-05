@@ -1,9 +1,9 @@
 ---
 title: "AI for Radiomics"
 collection: teaching
-type: "Course for A\* STAR Staff and Clinicians"
+type: "Course for ASTAR Staff and Clinicians"
 permalink: /teaching/2021_Radiomics
-venue: "A\* STAR"
+venue: "ASTAR"
 date: 2021-02-01
 location: "Singapore"
 ---
