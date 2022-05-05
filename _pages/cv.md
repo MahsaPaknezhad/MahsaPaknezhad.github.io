@@ -33,15 +33,20 @@ Work Experience
 Academic Qualifications
 ======
 **2013-2018 PhD in Computer Science, National University of Singapore, Singapore**
+
 Thesis: Towards Automatic and Consistent Cardiac MRI Analysis
 
 **2011-2013 M.Eng in IT Engineering, Shiraz University of Technology, Iran**
+
 Thesis: Implementing Cloud Computing on Content-centric Networks
 Selected courses: Data Analysis, Distributed Systems, Advanced Computer Networks, Advanced Computer Architecture
+
 GPA:18.80/20
  
 **2007-2011 B.Eng in IT Engineering, Shiraz University of Technology, Iran**
+
 Selected courses: Data Structure, Artificial Intelligence, Image processing, Java programming, Software Engineering, Database, Computer Graphics, Computer Networks, Computer Architecture, Web design
+
 Top student for 3 consecutive years
 GPA: 18.13/20
 
