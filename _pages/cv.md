@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "WORK EXPERIENCE"
+title: ""
 permalink: /cv/
 author_profile: true
 redirect_from:
@@ -8,6 +8,8 @@ redirect_from:
 ---
 
 {% include base_path %}
+
+WORK EXPERIENCE
 ======
 
 **2020-Present	Senior Postdoctoral Research Fellow, Bioinformatics Institute (BII), A*STAR, Singapore**
@@ -65,6 +67,7 @@ We developed a ML algorithm to use segmentation of the LV walls in high quality 
 
 **Accurate Left Ventricular Volume Measurement from MR Images:**
 Developed a model-free and a model-based ML algorithm for accurate detection of the MRI slice under the mitral valve. Developed the algorithms in C++, Matlab. Deployed ITK and VTK image processing and visualization libraries. The proposed algorithms were accepted at the MICCAI conference and JMI journal.  
+
  
 SKILLS
 ======
