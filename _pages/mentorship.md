@@ -32,8 +32,8 @@ Mar  2021 - April 2022		Beh Chenghao, Hwa Chong Institution, **Received a gold m
 			
 Jul    2020 - Jan 2021		Alistair Cheong, Hwa Chong Institution, **Received a bronze medal at Singapore Science 	and Engineering Fair (SSEF) together with Chuen Yang and Jiayang**	
 
-Jul    2020 - Jan 2021		Beh Chuen Yang, Hwa Chong Institution,		
+Jul    2020 - Jan 2021		Beh Chuen Yang, Hwa Chong Institution	
 			
-Jul    2020 - Jan 2021		Wu Jiayang, Hwa Chong Institution,	
+Jul    2020 - Jan 2021		Wu Jiayang, Hwa Chong Institution	
 				
-May 2019 - Oct 2019		Tan Teong Seng, Hwa Chong Institution,	
+May 2019 - Oct 2019		Tan Teong Seng, Hwa Chong Institution	
