@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "CV"
+title: "WORK EXPERIENCE"
 permalink: /cv/
 author_profile: true
 redirect_from:
@@ -8,8 +8,6 @@ redirect_from:
 ---
 
 {% include base_path %}
-
-WORK EXPERIENCE
 ======
 
 **2020-Present	Senior Postdoctoral Research Fellow, Bioinformatics Institute (BII), A*STAR, Singapore**
@@ -34,41 +32,46 @@ WORK EXPERIENCE
 ACADEMIC QUALIFICATIONS
 ======
 
-##2013-2018	PhD in Computer Science, National University of Singapore, Singapore
+**2013-2018 PhD in Computer Science, National University of Singapore, Singapore**
 Thesis: Towards Automatic and Consistent Cardiac MRI Analysis
 
-##2011-2013	M.Eng in IT Engineering, Shiraz University of Technology, Iran
+**2011-2013 M.Eng in IT Engineering, Shiraz University of Technology, Iran**
 Thesis: Implementing Cloud Computing on Content-centric Networks
 Selected courses: Data Analysis, Distributed Systems, Advanced Computer Networks, Advanced Computer Architecture
 GPA:18.80/20
  
-##2007-2011	B.Eng in IT Engineering, Shiraz University of Technology, Iran
+**2007-2011 B.Eng in IT Engineering, Shiraz University of Technology, Iran**
 Selected courses: Data Structure, Artificial Intelligence, Image processing, Java programming, Software Engineering, Database, Computer Graphics, Computer Networks, Computer Architecture, Web design
 Top student for 3 consecutive years
 GPA: 18.13/20
 
  
-
 RESEARCH EXPERIENCE
-===
-###Adversarial Robustness in Deep Learning:
+======
+**Adversarial Robustness in Deep Learning:**
 We hypothesized that adversarial vulnerability of DL models stems from two factors: 1) data sparsity in a high dimensional input data space and 2) existence of many redundant parameters in DL models. We developed a training framework in PyTorch to analyse our hypotheses. The analysis results confirmed our hypotheses. Our results were submitted and were recently accepted at the Neurocomputing journal.
-###Image Classification of 3D RSOM Images: 
+
+**Image Classification of 3D RSOM Images:**
 We developed an automatic algorithm using 3D images of the micro-vascular structure and tissue layers under the skin as well as other clinical data to predict eczema and severity of the eczema condition. We developed a 3D neural network using Tensorflow library and a ML model in python. Our model can differentiate healthy from eczema tissue with 97% accuracy.
-###Image Classification of 3D OCT Images: 
+
+**Image classification of 3D OCT Images:**
 We analyzed 3D OCT images of the patient’s cornea to identify any potential cardiovascular diseases. The proposed algorithm consists of a 3D neural network developed using Tensorflow library. The developed model is currently part of an ensemble network with models developed for other modalities such as Fundus images, genomics and clinical data by our research partners.
-###Image Registration of Immunohistochemistry Images: 
+
+**Image Registration of Immunohistochemistry Images:** 
 We developed a linear image registration algorithm in C++ that registers a user-specified region in hundreds of immunohistochemistry image slices. We used the VTK library for visualization of the blood vessels and showed the reconstructed blood vessels before and after registration. The proposed algorithm outperforms state-of-the-art nonlinear and patch-based registration algorithms.  
-###Image Segmentation of Tagged MR Images: 
+
+**Image Segmentation of Tagged MR Images:**
 We developed a ML algorithm to use segmentation of the LV walls in high quality cineMR images for low quality tagged MR images. The proposed algorithm was developed in Matlab and C++. Visualization and image processing was performed using ITK and VTK libraries. The calculated regional strain for healthy subjects using the output segmentation were more similar to the expected strain plots for healthy subjects than a state-of-the-art method. 
-###Accurate Left Ventricular Volume Measurement from MR Images: Developed a model-free and a model-based ML algorithm for accurate detection of the MRI slice under the mitral valve. Developed the algorithms in C++, Matlab. Deployed ITK and VTK image processing and visualization libraries. The proposed algorithms were accepted at the MICCAI conference and JMI journal.  
+
+**Accurate Left Ventricular Volume Measurement from MR Images:**
+Developed a model-free and a model-based ML algorithm for accurate detection of the MRI slice under the mitral valve. Developed the algorithms in C++, Matlab. Deployed ITK and VTK image processing and visualization libraries. The proposed algorithms were accepted at the MICCAI conference and JMI journal.  
  
 SKILLS
-===
-##Programming languages
+======
+**Programming languages**
 Python, C++, MATLAB, JAVA
 
-##Libraries
+**Libraries**
 Tensorflow, Pytorch, Matplotlib, Scikit-Learn, Openslide, OpenCV, PIL, SciPy, FoolboxAttack, ITK, VTK
 
 
