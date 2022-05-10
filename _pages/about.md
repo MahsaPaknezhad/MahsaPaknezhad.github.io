@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-I am a senior research fellow in developing and applying ML and AI algorithms to medical image analysis. In this GitHub repository, I put some of my code for different projects I have been working on. I have provided a brief explanation of the purpose of the most recent projects below. 
+I am a senior research fellow in developing and applying ML and AI algorithms to medical image analysis. In this GitHub repository, I have put some of my code for different projects I have been working on. I have provided a brief explanation of the purpose of the most recent projects below. 
 
 ## Parallel Learning for Robust and Transparent AI
 In this project, we develop an algorithm for training a DL model on multiple tasks in a continual learning scenario. In contrast to the proposed algorithms where the DL model is trained on tasks sequentially, our proposed algorithm trains the DL model on the existing tasks in parallel. The parallel approach allows a DL model to learn generalizable representations and eliminates the problem of catastrophic forgetting which is common in sequential learning approaches. The diagram of the proposed algorithm is shown below.
