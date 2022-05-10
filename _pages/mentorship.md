@@ -30,7 +30,7 @@ Apr 2019 - Aug 2019		Clara Lim, Singapore University of Technology and Design
 
 Mar  2021 - April 2022		Beh Chenghao, Hwa Chong Institution, **received a gold medal at Singapore Science and Engineering Fair (SSEF)**	
 			
-Jul    2020 - Jan 2021		Alistair Cheong, Hwa Chong Institution,**received a bronze medal at Singapore Science 	and Engineering Fair (SSEF) together with Chuen Yang and Jiayang**	
+Jul    2020 - Jan 2021		Alistair Cheong, Hwa Chong Institution, **received a bronze medal at Singapore Science 	and Engineering Fair (SSEF) together with Chuen Yang and Jiayang**	
 
 Jul    2020 - Jan 2021		Beh Chuen Yang, Hwa Chong Institution	
 			
