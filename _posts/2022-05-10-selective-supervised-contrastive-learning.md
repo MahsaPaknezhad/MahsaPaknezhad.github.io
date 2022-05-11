@@ -35,7 +35,7 @@ Uses unsupervised training to initially train the network in the first few epoch
 
 Confident examples are found by first measuring cosine distance between the low dimensional representations z_i, z_j of each pair of examples
 
-$d(z_i, z_j) = \frac{z_iz_j^T}{\norm{z_i}\norm{z_j}}$
+$d(z_i, z_j) = \frac{z_i z_j^T}{||z_i|| ||z_j||}$
 
 Creating a pseudo-label y^_i for each example (x_i. y~_i) by aggregating the original label from its top-k neighbors with lowest the cosine distance
 
