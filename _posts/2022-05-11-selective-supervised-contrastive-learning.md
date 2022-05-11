@@ -1,7 +1,7 @@
 ---
 title: 'Selective Supervised Contrastive Learning'
 date: 2022-05-11
-permalink: /posts/2022/05/selective-supervised-cl/
+permalink: /posts/2022/05/selective-supervised-contrastive-learning/
 tags:
   - Contrastive Learning
   - Noisy Labels
