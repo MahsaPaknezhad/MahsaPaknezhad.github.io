@@ -39,7 +39,7 @@ $d(z_i, z_j) = \frac{z_i z_j^T}{\|\|z_i\|\|~\|\|z_j\|\|}$
 
 Creating a pseudo-label $\hat{y}_i$ for each example ($x_i$, $\tilde{y}_i$) by aggregating the original label from its top-k neighbors with lowest the cosine distance
 
-$\hat{q}_c(x_i)$
+$\hat{q}_c(x_i) = \frac{1}{K}$
 
 Use the pseudo-labels to approximate the clean class psoterior probabilities
 
