@@ -39,7 +39,7 @@ $d(z_i, z_j) = \frac{z_i z_j^T}{\|\|z_i\|\|~\|\|z_j\|\|}$
 
 Creating a pseudo-label $\hat{y}_i$ for each example ($x_i$, $\tilde{y}_i$) by aggregating the original label from its top-k neighbors with lowest the cosine distance
 
-equation (2)
+$\hat{q}_c(x_i) = \frac{1}{K} \sum_{k=1, x_k \in N_i} I[\hat{y}_k=c], c \in [C]$
 
 Use the pseudo-labels to approximate the clean class psoterior probabilities
 
@@ -49,7 +49,7 @@ equation (3)
 
 where l refers to cross-entropy loss and $\gamma_c$ is a threshold for c-th class. $\gamma_c$ is set in a way to get a class-balanced set of confident examples.
 
-The confident example set for all classes is then defined as the union of $\tau = {\tau_c}_{c=1}^C$
+The confident example set for all classes is then defined as the union of $\tau = \{\tau_c\_{c=1}^C$
 
 
 *How to select confident pairs?*
