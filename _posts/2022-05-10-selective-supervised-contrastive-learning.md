@@ -29,7 +29,7 @@ The proposed algorithm by the paper "Selective Supervised Contrastive Learning w
 * Train the network with the confident pairs using supervised contrastive learning
 
 
-*how to find confident examples?*
+**How to find confident examples?**
 
 Uses unsupervised training to initially train the network in the first few epochs
 
@@ -52,7 +52,7 @@ where l refers to cross-entropy loss and $\gamma_c$ is a threshold for c-th clas
 The confident example set for all classes is then defined as the union of $\tau = \{\tau_c\_{c=1}^C$
 
 
-*How to select confident pairs?*
+**How to select confident pairs?**
 
 
 The confident examples are transformed into a set of confident pairs as the union of two different sets. The first set is defined as shown below:
@@ -67,7 +67,7 @@ Where $\tilde{s}_{ij} = I[\tilde{y}_i, \tilde{y}_j]$ and gamma is a dynamic thre
 
 $g = g' \cup g''$
 
-*How is the network trained?*
+**How is the network trained?**
 
 
 
