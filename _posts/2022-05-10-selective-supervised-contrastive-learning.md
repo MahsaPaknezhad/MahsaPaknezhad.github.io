@@ -33,23 +33,23 @@ The proposed algorithm by the paper "Selective Supervised Contrastive Learning w
 
 Uses unsupervised training to initially train the network in the first few epochs
 
-Confident examples are found by first measuring cosine distance between the low dimensional representations z_i, z_j of each pair of examples
+Confident examples are found by first measuring cosine distance between the low dimensional representations $z_i$, $z_j$ of each pair of examples
 
-$d(z_i, z_j) = \frac{z_i z_j^T}{\|\|z_i\|\| \|\|z_j\|\|}$
+$d(z_i, z_j) = \frac{z_i z_j^T}{\|\|z_i\|\|~\|\|z_j\|\|}$
 
-Creating a pseudo-label y^_i for each example (x_i. y~_i) by aggregating the original label from its top-k neighbors with lowest the cosine distance
+Creating a pseudo-label $\hat{y}_i$ for each example ($x_i$, $\tilde{y}_i$) by aggregating the original label from its top-k neighbors with lowest the cosine distance
 
 equation (2)
 
 Use the pseudo-labels to approximate the clean class psoterior probabilities
 
-Denote the set of confident examples beloning to the c-th class as tau_c
+Denote the set of confident examples beloning to the c-th class as $\tau_c$
 
 equation (3)
 
-where l refers to cross-entropy loss and y_c is a threshold for c-th class. y_c is set in a way to get a class-balanced set of confident examples.
+where l refers to cross-entropy loss and $\gamma_c$ is a threshold for c-th class. $\gamma_c$ is set in a way to get a class-balanced set of confident examples.
 
-The confident example set for all classes is then defined as the union of tau = {tau_c}_{c=1}^C
+The confident example set for all classes is then defined as the union of $\tau = {\tau_c}_{c=1}^C$
 
 
 *How to select confident pairs?*
@@ -59,13 +59,13 @@ The confident examples are transformed into a set of confident pairs as the unio
 
 equation (4)
 
-Where P_ij is the pair built by the examples (x_i,y~_i) and (x_j, y~_j). This set consists of all possible pairs of examples from tau with the same label. The second set is defined on the whole training dataset as:
+Where P_ij is the pair built by the examples $(x_i,\tilde{y}_i)$ and $(x_j, \tilde{y}_j)$. This set consists of all possible pairs of examples from tau with the same label. The second set is defined on the whole training dataset as:
 
 equation (5)
 
-Where s~_ij = I[y~_i, y~_j] and gamma is a dynamic threshold to control the number of identified condiferent pairs. This set represents examples that are misclassified to the same class. The final set of confidents pairs is defined as:
+Where $\tilde{s}_{ij} = I[\tilde{y}_i, \tilde{y}_j]$ and gamma is a dynamic threshold to control the number of identified condiferent pairs. This set represents examples that are misclassified to the same class. The final set of confidents pairs is defined as:
 
-g = g' u g''
+$g = g' \cup g''$
 
 *How is the network trained?*
 
