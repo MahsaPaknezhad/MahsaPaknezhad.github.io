@@ -50,11 +50,11 @@ Use the pseudo-labels to approximate the clean class psoterior probabilities
 
 Denote the set of confident examples beloning to the c-th class as $\mathcal{T}_c$
 
-$$ \tau_c = \{(x_i, \tilde{y}_i) | \mathcal{l}(\mathbf{\hat{q}}(x_i), \tilde{y}_i) < \gamma_c, i \in [n]\}, c \in [C]$$
+$$ \mathcal{T}_c = \{(x_i, \tilde{y}_i) | \mathcal{l}(\mathbf{\hat{q}}(x_i), \tilde{y}_i) < \gamma_c, i \in [n]\}, c \in [C]$$
 
 where $\mathcal{l}$ refers to cross-entropy loss and $\gamma_c$ is a threshold for c-th class. $\gamma_c$ is set in a way to get a class-balanced set of confident examples.
 
-The confident example set for all classes is then defined as the union of $\tau = \bigcup_{c=1}^C \tau_c$
+The confident example set for all classes is then defined as the union of $\mathcal{T} = \bigcup_{c=1}^C \mathcal{T}_c$
 
 
 **How to select confident pairs?**
@@ -62,9 +62,9 @@ The confident example set for all classes is then defined as the union of $\tau 
 
 The confident examples are transformed into a set of confident pairs as the union of two different sets. The first set is defined as shown below:
 
-$$\mathcal{g}' = \{P_{ij}| \tilde{y}_i = \tilde{y}_j, (x_i, \tilde{y}_i), (x_j, \tilde{y}_j) \in \tau\}$$
+$$\mathcal{g}' = \{P_{ij}| \tilde{y}_i = \tilde{y}_j, (x_i, \tilde{y}_i), (x_j, \tilde{y}_j) \in \mathcal{T}\}$$
 
-Where $P_ij$ is the pair built by the examples $(x_i,\tilde{y}_i)$ and $(x_j, \tilde{y}_j)$. This set consists of all possible pairs of examples from tau with the same label. The second set is defined on the whole training dataset as:
+Where $P_ij$ is the pair built by the examples $(x_i,\tilde{y}_i)$ and $(x_j, \tilde{y}_j)$. This set consists of all possible pairs of examples from $\mathcal{T}$ with the same label. The second set is defined on the whole training dataset as:
 
 $$ \mathcal{g}'' = \{P_{ij} | \tilde{s}_{ij} = 1, d(z_i, z_j) > \gamma\}$$
 
