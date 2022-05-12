@@ -5,7 +5,6 @@ permalink: /posts/2022/05/selective-supervised-contrastive-learning/
 header-includes:
    - \usepackage{amssymb}
    - \usepackage{amsmath}
-   - \usepackage{amsfonts}
 output:
     pdf_document
 tags:
