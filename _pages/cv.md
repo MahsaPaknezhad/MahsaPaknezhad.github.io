@@ -49,3 +49,25 @@ Selected courses: Data Structure, Artificial Intelligence, Image processing, Jav
 
 Top student for 3 consecutive years
 GPA: 18.13/20
+
+Research Experience
+======
+**Adversarial Robustness in Deep Learning:**
+We hypothesized that adversarial vulnerability of DL models stems from two factors: 1) data sparsity in a high dimensional input data space and 2) existence of many redundant parameters in DL models. We developed a training framework in PyTorch to analyse our hypotheses. The analysis results confirmed our hypotheses. Our results were submitted and were recently accepted at the Neurocomputing journal.
+
+**Image Classification of 3D RSOM Images:**
+We developed an automatic algorithm using 3D images of the micro-vascular structure and tissue layers under the skin as well as other clinical data to predict eczema and severity of the eczema condition. We developed a 3D neural network using Tensorflow library and a ML model in python. Our model can differentiate healthy from eczema tissue with 97% accuracy.
+
+**Image classification of 3D OCT Images:**
+We analyzed 3D OCT images of the patient’s cornea to identify any potential cardiovascular diseases. The proposed algorithm consists of a 3D neural network developed using Tensorflow library. The developed model is currently part of an ensemble network with models developed for other modalities such as Fundus images, genomics and clinical data by our research partners.
+
+**Image Registration of Immunohistochemistry Images:**
+We developed a linear image registration algorithm in C++ that registers a user-specified region in hundreds of immunohistochemistry image slices. We used the VTK library for visualization of the blood vessels and showed the reconstructed blood vessels before and after registration. The proposed algorithm outperforms state-of-the-art nonlinear and patch-based registration algorithms.  
+
+**Image Segmentation of Tagged MR Images:**
+We developed a ML algorithm to use segmentation of the LV walls in high quality cineMR images for low quality tagged MR images. The proposed algorithm was developed in Matlab and C++. Visualization and image processing was performed using ITK and VTK libraries. The calculated regional strain for healthy subjects using the output segmentation were more similar to the expected strain plots for healthy subjects than a state-of-the-art method.
+
+**Accurate Left Ventricular Volume Measurement from MR Images:**
+Developed a model-free and a model-based ML algorithm for accurate detection of the MRI slice under the mitral valve. Developed the algorithms in C++, Matlab. Deployed ITK and VTK image processing and visualization libraries. The proposed algorithms were accepted at the MICCAI conference and JMI journal.  
+
+ 
