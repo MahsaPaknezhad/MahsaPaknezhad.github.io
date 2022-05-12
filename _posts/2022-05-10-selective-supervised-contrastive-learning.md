@@ -48,7 +48,7 @@ $$\hat{q}_c(x_i) = \frac{1}{K} \sum_{k=1}^K \mathbb{I}[(\hat{y})_k=c], c \in [C]
 
 Use the pseudo-labels to approximate the clean class psoterior probabilities
 
-Denote the set of confident examples beloning to the c-th class as $\tau_c$
+Denote the set of confident examples beloning to the c-th class as $\mathcal{T}_c$
 
 $$ \tau_c = \{(x_i, \tilde{y}_i) | \mathcal{l}(\mathbf{\hat{q}}(x_i), \tilde{y}_i) < \gamma_c, i \in [n]\}, c \in [C]$$
 
