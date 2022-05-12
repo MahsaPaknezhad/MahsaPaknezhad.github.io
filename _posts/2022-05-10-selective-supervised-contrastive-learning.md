@@ -5,6 +5,7 @@ permalink: /posts/2022/05/selective-supervised-contrastive-learning/
 header-includes:
    - \usepackage{amsfonts}
    - \usepackage{amssymb}
+   - \usepackage{eucal}
 output:
     pdf_document
 tags:
@@ -70,7 +71,7 @@ $$ \mathcal{g}'' = \{P_{ij} | \tilde{s}_{ij} = 1, d(z_i, z_j) > \gamma\}$$
 
 Where $\tilde{s}_{ij} = \mathbb{I}[\tilde{y}_i, \tilde{y}_j]$ and gamma is a dynamic threshold to control the number of identified condiferent pairs. This set represents examples that are misclassified to the same class. The final set of confidents pairs is defined as:
 
-$\mathcal{g} = \mathcal{g}' \cup \mathcal{g}''$
+$$\mathcal{g} = \mathcal{g}' \cup \mathcal{g}''$$
 
 **How is the network trained?**
 
