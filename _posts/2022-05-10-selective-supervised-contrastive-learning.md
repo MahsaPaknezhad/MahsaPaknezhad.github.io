@@ -76,13 +76,6 @@ $$\mathcal{G} = \mathcal{G}' \cup \mathcal{G}''$$
 
 The network is trained using three loss terms. The first term uses the Mixup technique which generated a convex combination of pairs of examples as $x_i = \lambda x_a + (1-\lambda)x_b$, where $\lambda \in [0,1] \sim Beta(\alpha_m, \alpha_m)$; and $x_a$ and $x_b$ are two mini-batch examples. The Mixup loss is defined as:
 
-$$ \mathcal{L}_i^{MIX} = \lambda \mathcal{L}_a(z_i) + (1-\lambda) \mathcal{L}_b(z_i),$$
-
-where $\mathcal{L}_a$ and $\mathcal{L}_b$ have the same form as supervised contrastive learning loss that is defined as:
-
-$$ \mathcal{L}_i = \sum_{g \in \mathcal{G}(i)} \log \frac{exp(z_i.z_g/\tau}{\sum_{a\in A(i)} exp(z_i.z_a/\tau}.$$
-
-$A(i)$ specifies the set of indices excluding $i$ and $\mathcal{G}_i = \{g|g \in A(i), P_{i'g'} \in \mathcal{G}\} hwere $i'$ and $g'$ are the original indices of $x_i$ and $x_g$. $\tau \in \mathbb{R}^+$ is a temperature parameter. 
 
 
 
