@@ -1,4 +1,4 @@
----
+﻿---
 layout: archive
 title: ""
 permalink: /cv/
@@ -10,7 +10,7 @@ redirect_from:
 {% include base_path %}
 
 Work Experience
-----
+------
 **2020-Present	Senior Postdoctoral Research Fellow, Bioinformatics Institute (BII), A*STAR, Singapore**
 * Led multiple DL projects and have two papers one accepted at Neurocomputing journal and one under review
 * Wrote multiple grant proposals and received the AI3 HTPO grant which will sponsor our project for 2 years
@@ -31,7 +31,7 @@ Work Experience
  
 
 Academic Qualifications
-======
+------
 **2013-2018 PhD in Computer Science, National University of Singapore, Singapore**
 
 Thesis: Towards Automatic and Consistent Cardiac MRI Analysis
@@ -52,7 +52,7 @@ GPA: 18.13/20
 
  
 Research Experience
-======
+------
 **Adversarial Robustness in Deep Learning:**
 We hypothesized that adversarial vulnerability of DL models stems from two factors: 1) data sparsity in a high dimensional input data space and 2) existence of many redundant parameters in DL models. We developed a training framework in PyTorch to analyse our hypotheses. The analysis results confirmed our hypotheses. Our results were submitted and were recently accepted at the Neurocomputing journal.
 
@@ -73,7 +73,7 @@ Developed a model-free and a model-based ML algorithm for accurate detection of 
 
  
 Skills
-======
+------
 **Programming languages**
 
 Python, C++, MATLAB, JAVA
@@ -84,12 +84,12 @@ Tensorflow, Pytorch, Matplotlib, Scikit-Learn, Openslide, OpenCV, PIL, SciPy, Fo
 
 
 Tools
-======
+------
 Visual Studio C++, Segment, Paraview, MedInria, ImageJ, Eclipse, WEKA, Photoshop, Dreamweaver
 
 
 Awards
-=====
+------
 
 **2021**	Receiver of AI3 HTPO seed fund grant, A*STAR
 

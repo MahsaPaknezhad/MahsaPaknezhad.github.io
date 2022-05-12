@@ -62,15 +62,15 @@ The confident example set for all classes is then defined as the union of $\math
 
 The confident examples are transformed into a set of confident pairs as the union of two different sets. The first set is defined as shown below:
 
-$$\mathcal{g}' = \{P_{ij}| \tilde{y}_i = \tilde{y}_j, (x_i, \tilde{y}_i), (x_j, \tilde{y}_j) \in \mathcal{T}\}$$
+$$\mathcal{G}' = \{P_{ij}| \tilde{y}_i = \tilde{y}_j, (x_i, \tilde{y}_i), (x_j, \tilde{y}_j) \in \mathcal{T}\}$$
 
 Where $P_ij$ is the pair built by the examples $(x_i,\tilde{y}_i)$ and $(x_j, \tilde{y}_j)$. This set consists of all possible pairs of examples from $\mathcal{T}$ with the same label. The second set is defined on the whole training dataset as:
 
-$$ \mathcal{g}'' = \{P_{ij} | \tilde{s}_{ij} = 1, d(z_i, z_j) > \gamma\}$$
+$$ \mathcal{G}'' = \{P_{ij} | \tilde{s}_{ij} = 1, d(z_i, z_j) > \gamma\}$$
 
 Where $\tilde{s}_{ij} = \mathbb{I}[\tilde{y}_i, \tilde{y}_j]$ and gamma is a dynamic threshold to control the number of identified condiferent pairs. This set represents examples that are misclassified to the same class. The final set of confidents pairs is defined as:
 
-$$\mathcal{G} = \mathcal{g}' \cup \mathcal{g}''$$
+$$\mathcal{G} = \mathcal{G}' \cup \mathcal{G}''$$
 
 **How is the network trained?**
 
