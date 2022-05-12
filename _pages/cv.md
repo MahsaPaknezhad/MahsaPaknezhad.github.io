@@ -62,4 +62,49 @@ We developed an automatic algorithm using 3D images of the micro-vascular struct
 We analyzed 3D OCT images of the patient\'s cornea to identify any potential cardiovascular diseases. The proposed algorithm consists of a 3D neural network developed using Tensorflow library. The developed model is currently part of an ensemble network with models developed for other modalities such as Fundus images, genomics and clinical data by our research partners.
 
 **Image Registration of Immunohistochemistry Images:**
-We developed a linear image registration algorithm in C++ that registers a user-specified region in hundreds of immunohistochemistry image slices. We used the VTK library for visualization of the blood vessels and showed the reconstructed blood vessels before and after registration. The proposed algorithm outperforms state-of-the-art nonlinear and patch-based registration algorithms.  
+We developed a linear image registration algorithm in C++ that registers a user-specified region in hundreds of immunohistochemistry image slices. We used the VTK library for visualization of the blood vessels and showed the reconstructed blood vessels before and after registration. The proposed algorithm outperforms state-of-the-art nonlinear and patch-based registration algorithms. 
+
+
+**Image Segmentation of Tagged MR Images:**
+We developed a ML algorithm to use segmentation of the LV walls in high quality cineMR images for low quality tagged MR images. The proposed algorithm was developed in Matlab and C++. Visualization and image processing was performed using ITK and VTK libraries. The calculated regional strain for healthy subjects using the output segmentation were more similar to the expected strain plots for healthy subjects than a state-of-the-art method.
+
+**Accurate Left Ventricular Volume Measurement from MR Images:**
+Developed a model-free and a model-based ML algorithm for accurate detection of the MRI slice under the mitral valve. Developed the algorithms in C++, Matlab. Deployed ITK and VTK image processing and visualization libraries. The proposed algorithms were accepted at the MICCAI conference and JMI journal.  
+
+ 
+Skills
+======
+**Programming languages**
+
+Python, C++, MATLAB, JAVA
+
+**Libraries**
+
+Tensorflow, Pytorch, Matplotlib, Scikit-Learn, Openslide, OpenCV, PIL, SciPy, FoolboxAttack, ITK, VTK
+
+
+Tools
+======
+Visual Studio C++, Segment, Paraview, MedInria, ImageJ, Eclipse, WEKA, Photoshop, Dreamweaver
+
+
+Awards
+======
+
+**2021** Receiver of AI3 HTPO seed fund grant, ASTAR
+
+**2016** Medical Image Processing and Computer Assisted Intervention Travel Award
+
+**2013** ASTAR Singapore International Graduate Award for PhD
+
+**2010** Member of the Office of Talented Students, Shiraz University of Technology
+
+**2009** Top Student Award, Shiraz University of Technology
+
+**2009** Member of the Office of Talented Students, Shiraz University of Technology
+
+**2008** Top Student Award, Shiraz University of Technology
+
+**2008** Member of the Office of Talented Students, Shiraz University of Technology
+
+**2007** Top Student Award, Shiraz University of Technology 
