@@ -35,11 +35,11 @@ Uses unsupervised training to initially train the network in the first few epoch
 
 Confident examples are found by first measuring cosine distance between the low dimensional representations $z_i$, $z_j$ of each pair of examples
 
-$$d(z_i, z_j) = \frac{z_i z_j^T}{\|\|z_i\|\|~\|\|z_j\|\|}$$
+$$d(z_i, z_j) = \frac{z_i z_j^T}{\|z_i\|~\|z_j\|}$$
 
 Creating a pseudo-label $\hat{y}_i$ for each example ($x_i$, $\tilde{y}_i$) by aggregating the original label from its top-k neighbors with lowest the cosine distance
 
-$$\hat{q}_c(x_i) = \frac{1}{K} \sum_{k=1}^K I[\hat(y)_k=c], c \in [C]$$
+$$\hat{q}_c(x_i) = \frac{1}{K} \sum_{k=1}^K I[(\hat{y})_k=c], c \in [C]$$
 
 Use the pseudo-labels to approximate the clean class psoterior probabilities
 
