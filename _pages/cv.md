@@ -11,16 +11,16 @@ redirect_from:
 
 Work Experience
 ------
-**2020-Present	Senior Postdoctoral Research Fellow, Bioinformatics Institute (BII), A*STAR, Singapore**
+**2020-Present	Senior Postdoctoral Research Fellow, Bioinformatics Institute (BII), ASTAR, Singapore**
 * Led multiple DL projects and have two papers one accepted at Neurocomputing journal and one under review
 * Wrote multiple grant proposals and received the AI3 HTPO grant which will sponsor our project for 2 years
 * Initiated and led a project with the Baker Heart and Diabetes Institute, Australia
-* Was BII's representative for organizing courses in collaboration with other A*STAR research institutes and NTU on AI and biomedical image processing
+* Was BII's representative for organizing courses in collaboration with other ASTAR research institutes and NTU on AI and biomedical image processing
 * Trained half a dozen trainees and interns
 
-**2018-2020 Postdoctoral Research Fellow, Bioinformatics Institute (BII), A*STAR, Singapore**
+**2018-2020 Postdoctoral Research Fellow, Bioinformatics Institute (BII), ASTAR, Singapore**
 * Led DL and ML projects and had two publications at BMC bioinformatics and Plos One journals
-* Trained a course in collaboration with other AI experts at A*STAR on Data science
+* Trained a course in collaboration with other AI experts at ASTAR on Data science
 * Trained multiple interns.
 
 **Mar 2017-Dec 2017 Intern at School of Electrical and Electronic Engineering, University of Melbourne, Australia**
@@ -91,11 +91,11 @@ Visual Studio C++, Segment, Paraview, MedInria, ImageJ, Eclipse, WEKA, Photoshop
 Awards
 ------
 
-**2021**	Receiver of AI3 HTPO seed fund grant, A*STAR
+**2021**	Receiver of AI3 HTPO seed fund grant, ASTAR
 
 **2016**	Medical Image Processing and Computer Assisted Intervention Travel Award
 
-**2013**	A*STAR Singapore International Graduate Award for PhD
+**2013**	ASTAR Singapore International Graduate Award for PhD
 
 **2010**	Member of the Office of Talented Students, Shiraz University of Technology
 
