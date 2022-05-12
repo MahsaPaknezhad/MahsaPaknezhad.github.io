@@ -57,3 +57,9 @@ We hypothesized that adversarial vulnerability of DL models stems from two facto
 
 **Image Classification of 3D RSOM Images:**
 We developed an automatic algorithm using 3D images of the micro-vascular structure and tissue layers under the skin as well as other clinical data to predict eczema and severity of the eczema condition. We developed a 3D neural network using Tensorflow library and a ML model in python. Our model can differentiate healthy from eczema tissue with 97% accuracy.
+
+**Image classification of 3D OCT Images:**
+We analyzed 3D OCT images of the patient’s cornea to identify any potential cardiovascular diseases. The proposed algorithm consists of a 3D neural network developed using Tensorflow library. The developed model is currently part of an ensemble network with models developed for other modalities such as Fundus images, genomics and clinical data by our research partners.
+
+**Image Registration of Immunohistochemistry Images:**
+We developed a linear image registration algorithm in C++ that registers a user-specified region in hundreds of immunohistochemistry image slices. We used the VTK library for visualization of the blood vessels and showed the reconstructed blood vessels before and after registration. The proposed algorithm outperforms state-of-the-art nonlinear and patch-based registration algorithms.  
