@@ -79,6 +79,10 @@ The network is trained using three loss terms. The first term uses the Mixup tec
 
 $$ \mathcal{L}_i^{MIX} = \lambda \mathcal{L}_a(z_i) + (1-\lambda) \mathcal{L}_b(z_i),$$
 
+where $\mathcal{L}_a$ and $\mathcal{L}_b$ have the same form as supervised contrastive learning loss that is defined as:
+
+$$ \mathcal{L}_i = \sum_{g \in \mathcal{G}(i)} \log \frac{exp(z_i.z_g/\tau}{\sum_{a\in A(i)} exp(z_i.z_a/\tau}.$$
+
 
 
 
