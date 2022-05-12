@@ -4,7 +4,6 @@ date: 2022-05-10
 permalink: /posts/2022/05/selective-supervised-contrastive-learning/
 header-includes:
    - \usepackage{amsfonts}
-   - \usepackage{amssymb}
    - \usepackage[mathscr]{eucal}
 output:
     pdf_document
