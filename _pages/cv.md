@@ -11,7 +11,6 @@ redirect_from:
 
 Work Experience
 ------
-
 **2020-Present	Senior Postdoctoral Research Fellow, Bioinformatics Institute (BII), A*STAR, Singapore**
 * Led multiple DL projects and have two papers one accepted at Neurocomputing journal and one under review
 * Wrote multiple grant proposals and received the AI3 HTPO grant which will sponsor our project for 2 years
