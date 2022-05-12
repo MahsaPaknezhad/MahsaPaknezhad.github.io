@@ -11,12 +11,12 @@ tags:
 Contrastive Learning is able to learn good latent representations that can be used to achieve high performance in downstream tasks. Supervised contrastive learning enhances the learned representations using supervised information. However, noisy supervised information corrupts the learned representations. In this blog post, I will summarize and simplify a paper published in CVPR 2022 that proposed an algorithm to learn high quality representations in existence of noisy supervised information. The title of this paper is "Selective Supervised Contrastive Learning with Noisy Labels". 
 
 
-Contrastive learning
+What is contrastive learning?
 ------
 
 
 
-Supervised contrastive learning
+What is supervised contrastive learning?
 ------
 
 
@@ -39,7 +39,7 @@ $d(z_i, z_j) = \frac{z_i z_j^T}{\|\|z_i\|\|~\|\|z_j\|\|}$
 
 Creating a pseudo-label $\hat{y}_i$ for each example ($x_i$, $\tilde{y}_i$) by aggregating the original label from its top-k neighbors with lowest the cosine distance
 
-$\hat{q}_c(x_i) = \frac{1}{K} \sum_{k=1}^K$
+$\hat{q}_c(x_i) = \frac{1}{K} \sum_{k=1}^K \mathbb{I}$
 
 Use the pseudo-labels to approximate the clean class psoterior probabilities
 
