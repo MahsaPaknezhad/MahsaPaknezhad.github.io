@@ -83,7 +83,7 @@ where $\mathcal{L}_a$ and $\mathcal{L}_b$ have the same form as supervised contr
 
 $$ \mathcal{L}_i = \sum_{g \in \mathcal{G}(i)} \log \frac{exp(z_i.z_g/\tau)}{\sum_{a\in A(i)} exp(z_i.z_a/\tau)}.$$
 
-$A(i)$ specifies the set of indices excluding $i$ and $\mathcal{G}_i = \{g \in A(i), P_{i'g'} \in \mathcal{G}\}$ where $i'$ and $g'$ are the original indices of $x_i$ and $x_g$. $\tau \in \mathbb{R}^+$ is a temperature parameter. 
+$A(i)$ specifies the set of indices excluding $i$ and $\mathcal{G}_i = $ where $i'$ and $g'$ are the original indices of $x_i$ and $x_g$. $\tau \in \mathbb{R}^+$ is a temperature parameter. 
 
 
 
