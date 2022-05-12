@@ -89,7 +89,7 @@ Visual Studio C++, Segment, Paraview, MedInria, ImageJ, Eclipse, WEKA, Photoshop
 
 
 Awards
-======
+------
 
 **2021** Receiver of AI3 HTPO seed fund grant, ASTAR
 
