@@ -55,3 +55,5 @@ Research Experience
 **Adversarial Robustness in Deep Learning:**
 We hypothesized that adversarial vulnerability of DL models stems from two factors: 1) data sparsity in a high dimensional input data space and 2) existence of many redundant parameters in DL models. We developed a training framework in PyTorch to analyse our hypotheses. The analysis results confirmed our hypotheses. Our results were submitted and were recently accepted at the Neurocomputing journal.
 
+**Image Classification of 3D RSOM Images:**
+We developed an automatic algorithm using 3D images of the micro-vascular structure and tissue layers under the skin as well as other clinical data to predict eczema and severity of the eczema condition. We developed a 3D neural network using Tensorflow library and a ML model in python. Our model can differentiate healthy from eczema tissue with 97% accuracy.
