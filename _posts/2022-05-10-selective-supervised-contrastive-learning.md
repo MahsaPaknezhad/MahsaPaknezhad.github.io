@@ -3,7 +3,7 @@ title: 'Selective Supervised Contrastive Learning with Noisy Labels'
 date: 2022-05-10
 permalink: /posts/2022/05/selective-supervised-contrastive-learning/
 header-includes:
-   - \usepackage[mathscr]{eucal}
+   - \usepackage{eucal}
    - \usepackage{amsfonts}
 output:
     pdf_document
@@ -50,9 +50,9 @@ Use the pseudo-labels to approximate the clean class psoterior probabilities
 
 Denote the set of confident examples beloning to the c-th class as $\tau_c$
 
-$$ \tau_c = \{(x_i, \tilde{y}_i) | \mathcal{l}(\mathbf{\hat{q}}(x_i), \tilde{y}_i) < \gamma_c, i \in [n]\}, c \in [C]$$
+$$ \tau_c = \{(x_i, \tilde{y}_i) | \CMcal{l}(\mathbf{\hat{q}}(x_i), \tilde{y}_i) < \gamma_c, i \in [n]\}, c \in [C]$$
 
-where $\mathcal{l}$ refers to cross-entropy loss and $\gamma_c$ is a threshold for c-th class. $\gamma_c$ is set in a way to get a class-balanced set of confident examples.
+where $\CMcal{l}$ refers to cross-entropy loss and $\gamma_c$ is a threshold for c-th class. $\gamma_c$ is set in a way to get a class-balanced set of confident examples.
 
 The confident example set for all classes is then defined as the union of $\tau = \bigcup_{c=1}^C \tau_c$
 
@@ -62,15 +62,15 @@ The confident example set for all classes is then defined as the union of $\tau 
 
 The confident examples are transformed into a set of confident pairs as the union of two different sets. The first set is defined as shown below:
 
-$$\mathcal{g}' = \{P_{ij}| \tilde{y}_i = \tilde{y}_j, (x_i, \tilde{y}_i), (x_j, \tilde{y}_j) \in \tau\}$$
+$$\CMcal{g}' = \{P_{ij}| \tilde{y}_i = \tilde{y}_j, (x_i, \tilde{y}_i), (x_j, \tilde{y}_j) \in \tau\}$$
 
 Where $P_ij$ is the pair built by the examples $(x_i,\tilde{y}_i)$ and $(x_j, \tilde{y}_j)$. This set consists of all possible pairs of examples from tau with the same label. The second set is defined on the whole training dataset as:
 
-$$ \mathcal{g}'' = \{P_{ij} | \tilde{s}_{ij} = 1, d(z_i, z_j) > \gamma\}$$
+$$ \CMcal{g}'' = \{P_{ij} | \tilde{s}_{ij} = 1, d(z_i, z_j) > \gamma\}$$
 
 Where $\tilde{s}_{ij} = \mathbb{I}[\tilde{y}_i, \tilde{y}_j]$ and gamma is a dynamic threshold to control the number of identified condiferent pairs. This set represents examples that are misclassified to the same class. The final set of confidents pairs is defined as:
 
-$$\mathcal{g} = \mathcal{g}' \cup \mathcal{g}''$$
+$$\CMcal{g} = \CMcal{g}' \cup \CMcal{g}''$$
 
 **How is the network trained?**
 
