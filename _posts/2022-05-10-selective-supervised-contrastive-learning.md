@@ -77,6 +77,9 @@ $$\mathcal{G} = \mathcal{G}' \cup \mathcal{G}''$$
 The network is trained using three loss terms. The first term uses the Mixup technique which generated a convex combination of pairs of examples as $x_i = \lambda x_a + (1-\lambda)x_b$, where $\lambda \in [0,1] \sim Beta(\alpha_m, \alpha_m)$; and $x_a$ and $x_b$ are two mini-batch examples. The Mixup loss is defined as:
 
 
+$$ \mathcal{L}_i^{MIX} = \lambda \mathcal{L}_a(z_i) + (1-\lambda) \mathcal{L}_b(z_i),$$
+
+
 
 
 
