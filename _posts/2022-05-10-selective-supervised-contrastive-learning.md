@@ -83,13 +83,13 @@ where $\mathcal{L}_a$ and $\mathcal{L}_b$ have the same form as supervised contr
 
 $$ \mathcal{L}_i = \sum_{g \in \mathcal{G}(i)} \log \frac{exp(z_i.z_g/\tau)}{\sum_{a\in A(i)} exp(z_i.z_a/\tau)}.$$
 
-$A(i)$ specifies the set of indices excluding $i$ and $$\mathcal{G}_i = \{g|g \in A(i), P_{i'j'} \in \mathcal{G}\}$$ where $i'$ and $g'$ are the original indices of $x_i$ and $x_g$. Also, $\tau \in \mathbb{R}^+$ is a temperature parameter. The second loss is a classfication loss term on the confident examples. This loss is defined to stablize converegence and achieve better representations. The classification loss is defined as:
+$A(i)$ specifies the set of indices excluding $i$ and $\mathcal{G}_i = \{g|g \in A(i), P_{i'j'} \in \mathcal{G}\}$ where $i'$ and $g'$ are the original indices of $x_i$ and $x_g$. Also, $\tau \in \mathbb{R}^+$ is a temperature parameter. The second loss is a classfication loss term on the confident examples. This loss is defined to stablize converegence and achieve better representations. The classification loss is defined as:
 
 $$ \mathcal{L}^{CLS} = \sum_{(x_i,\tilde{y}_i) \in \mathcal{T}} \mathcal{L}_i^{CLS}(x_i) = \sum_{(x_i,\tilde{y}_i) \in \mathcal{T}} \mathcal{l}(\hat{p}(x_i), \tilde{y}_i)$$,
 
 where $x_i$ can refer to the augmented image. Finally, the third loss trains the classifier with similarity labels on the mini-batch data $\{(x_i, \tilde{y}_i)\}_{i=1}^{2N}$. The similarity loss is:
 
-$$\mathcal{L}^{SIM} = \sum_{i \in I} \sum_{j \in A(i)} \mathcal{l}(\hat{p}(x_i)\hat{p}(x_j), \mathbb{I}[P_{i'j'} \in \mathcal{G}]$$
+$$\mathcal{L}^{SIM} = \sum_{i \in I} \sum_{j \in A(i)} \mathcal{l}(\hat{p}(x_i)\hat{p}(x_j), \mathbb{I}[P_{i'j'} \in \mathcal{G}])$$
 
 
 
