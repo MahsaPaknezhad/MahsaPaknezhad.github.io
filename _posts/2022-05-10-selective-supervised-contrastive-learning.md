@@ -47,17 +47,15 @@ The noisy labeled dataset with $C$ different classes is denoted by $$\tilde{D} =
 <img src="/images/SelectiveCL.png" width=800>
 </p> 
 
-Confident examples are found by first measuring cosine distance between the low dimensional representations $z_i$, $z_j$ of each pair of examples
+Confident examples are found by first measuring cosine distance between the low dimensional representations $z_i$, $z_j$ of each pair of examples as shown below: 
 
 $$d(z_i, z_j) = \frac{z_i z_j^T}{\|z_i\|~\|z_j\|}$$
 
-Creating a pseudo-label $\hat{y}_i$ for each example ($x_i$, $\tilde{y}_i$) by aggregating the original label from its top-k neighbors with lowest the cosine distance
+They create a pseudo-label $\hat{y}_i$ for each example ($x_i$, $\tilde{y}_i$) by aggregating the original label from its top-k neighbors with the lowest cosine distance:
 
 $$\hat{q}_c(x_i) = \frac{1}{K} \sum_{k=1}^K \mathbb{I}[(\hat{y})_k=c], c \in [C]$$
 
-Use the pseudo-labels to approximate the clean class psoterior probabilities
-
-Denote the set of confident examples beloning to the c-th class as $\mathcal{T}_c$
+and use the pseudo-labels to approximate the clean class psoterior probabilities. The set of confident examples beloning to the c-th class is denoted by $\mathcal{T}_c$ and is defined as:
 
 $$ \mathcal{T}_c = \{(x_i, \tilde{y}_i) | \mathcal{l}(\mathbf{\hat{q}}(x_i), \tilde{y}_i) < \gamma_c, i \in [n]\}, c \in [C]$$
 
@@ -70,7 +68,7 @@ How to select confident pairs?
 ------
 
 
-The confident examples are transformed into a set of confident pairs as the union of two different sets. The first set is defined as shown below:
+The confident examples are transformed into a set of confident pairs by finding the union of two different sets. The first set is defined as shown below:
 
 $$\mathcal{G}' = \{P_{ij}| \tilde{y}_i = \tilde{y}_j, (x_i, \tilde{y}_i), (x_j, \tilde{y}_j) \in \mathcal{T}\}$$
 
@@ -78,7 +76,7 @@ Where $P_{ij}$ is the pair built by the examples $(x_i,\tilde{y}_i)$ and $(x_j, 
 
 $$ \mathcal{G}'' = \{P_{ij} | \tilde{s}_{ij} = 1, d(z_i, z_j) > \gamma\}$$
 
-Where $\tilde{s}_{ij} = \mathbb{I}[\tilde{y}_i, \tilde{y}_j]$ and gamma is a dynamic threshold to control the number of identified condiferent pairs. This set represents examples that are misclassified to the same class. The final set of confidents pairs is defined as:
+Where $\tilde{s}_{ij} = \mathbb{I}[\tilde{y}_i, \tilde{y}_j]$ and $\gamma$ is a dynamic threshold to control the number of identified confident pairs. This set represents examples that are misclassified to the same class. The final set of confidents pairs is defined as:
 
 $$\mathcal{G} = \mathcal{G}' \cup \mathcal{G}''$$
 
