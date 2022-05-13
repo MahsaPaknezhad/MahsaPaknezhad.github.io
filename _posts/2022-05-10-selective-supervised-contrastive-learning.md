@@ -83,7 +83,7 @@ $$\mathcal{G} = \mathcal{G}' \cup \mathcal{G}''$$
 How is the network trained?
 ------
 
-Following supervised contrastive learning, $N$ instances are randomly selected in each mini-batch and two random data augmentation operations are applied to each instance generating two data views. The resulting training mini-batch data is $$\{(x_i,\tilde{y}_i)\}_{i=1}^{2N}$$ where $$i \in I = [2N]$$ is the index of an augmented instance. The network is trained using three losses. The first loss uses the Mixup technique which generates a convex combination of pairs of examples as $x_i = \lambda x_a + (1-\lambda)x_b$, where $\lambda \in [0,1] \sim Beta(\alpha_m, \alpha_m)$; and $x_a$ and $x_b$ are two mini-batch examples. The Mixup loss is defined as:
+Following supervised contrastive learning, $N$ instances are randomly selected in each mini-batch and two random data augmentation operations are applied to each instance generating two data views. The resulting training mini-batch data is $$\{(x_i,\tilde{y}_i)\}_{i=1}^{2N}$$ where $$i \in I = [2N]$$ is the index of an augmented instance. The network is trained using three losses. The first loss uses the Mixup technique [6] which generates a convex combination of pairs of examples as $x_i = \lambda x_a + (1-\lambda)x_b$, where $\lambda \in [0,1] \sim Beta(\alpha_m, \alpha_m)$; and $x_a$ and $x_b$ are two mini-batch examples. The Mixup loss is defined as:
 
 
 $$ \mathcal{L}_i^{MIX} = \lambda \mathcal{L}_a(z_i) + (1-\lambda) \mathcal{L}_b(z_i),$$
@@ -92,11 +92,11 @@ where $\mathcal{L}_a$ and $\mathcal{L}_b$ have the same form as supervised contr
 
 $$ \mathcal{L}_i(z_i) = \sum_{g \in \mathcal{G}(i)} \log \frac{exp(z_i.z_g/\tau)}{\sum_{a\in A(i)} exp(z_i.z_a/\tau)}.$$
 
-$A(i)$ specifies the set of indices excluding $i$ and $$\mathcal{G}_i = \{g\mid g \in A(i), P_{i'j'} \in \mathcal{G}\}$$ where $i'$ and $g'$ are the original indices of $x_i$ and $x_g$. Also, $\tau \in \mathbb{R}^+$ is a temperature parameter. The second loss is a classfication loss term on the confident examples. This loss is defined to stablize converegence and achieve better representations. The classification loss is defined as:
+$A(i)$ specifies the set of indices excluding $i$ and $$\mathcal{G}_i = \{g\mid g \in A(i), P_{i'j'} \in \mathcal{G}\}$$ where $i'$ and $g'$ are the original indices of $x_i$ and $x_g$. Also, $\tau \in \mathbb{R}^+$ is a temperature parameter. The second loss is a classfication loss on the confident examples. This loss is defined to stablize converegence and achieve better representations. The classification loss is defined as:
 
 $$ \mathcal{L}^{CLS} = \sum_{(x_i,\tilde{y}_i) \in \mathcal{T}} \mathcal{L}_i^{CLS}(x_i) = \sum_{(x_i,\tilde{y}_i) \in \mathcal{T}} \mathcal{l}(\hat{p}(x_i), \tilde{y}_i)$$
 
-where $x_i$ can refer to the augmented image. Finally, the third loss trains the classifier with similarity labels on the mini-batch data $$\{(x_i, \tilde{y}_i)\}_{i=1}^{2N}$$. The similarity loss is:
+where $x_i$ can refer to the augmented image. Finally, inspired by recent methods [7,8], the authors add the third loss that trains the classifier with similarity labels on the mini-batch data $$\{(x_i, \tilde{y}_i)\}_{i=1}^{2N}$$. The similarity loss is:
 
 $$\mathcal{L}^{SIM} = \sum_{i \in I} \sum_{j \in A(i)} \mathcal{l}(\hat{p}(x_i)\hat{p}(x_j), \mathbb{I}[P_{i'j'} \in \mathcal{G}])$$
 
@@ -113,13 +113,19 @@ References
 
 [1] Li, Shikun, et al. "Selective-Supervised Contrastive Learning with Noisy Labels." arXiv preprint arXiv:2203.04181 (2022).
 
-[2] Van den Oord, Aaron, Yazhe Li, and Oriol Vinyals. "Representation learning with contrastive predictive coding." arXiv e-prints (2018): arXiv-1807.
+[2] Van den Oord, et al. "Representation learning with contrastive predictive coding." arXiv e-prints (2018): arXiv-1807.
 
 [3] Chuang, Ching-Yao, et al. "Debiased contrastive learning." Advances in neural information processing systems 33 (2020): 8765-8775.
 
 [4] Khosla, Prannay, et al. "Supervised contrastive learning." Advances in Neural Information Processing Systems 33 (2020): 18661-18673.
 
 [5] Google Blog: https://ai.googleblog.com/2021/06/extending-contrastive-learning-to.html?m=1
+
+[6] Zhang, Hongyi, et al. "mixup: Beyond empirical risk minimization." arXiv preprint arXiv:1710.09412 (2017).
+
+[7] Hsu, Yen-Chang, et al. "Multi-class classification without multi-class labels." arXiv preprint arXiv:1901.00544 (2019).
+
+[8] Wu, Songhua, et al. "Class2simi: A new perspective on learning with label noise." (2020).
 
 
 
