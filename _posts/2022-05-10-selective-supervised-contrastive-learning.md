@@ -74,7 +74,7 @@ $$\mathcal{G} = \mathcal{G}' \cup \mathcal{G}''$$
 
 **How is the network trained?**
 
-Following supervised contrastive learning, $N$ instances are randomly selected in each mini-batch and two random data augmentation operations are applied to each instance generating two data views. The resulting training mini-batch data is $\{(x_i,\tilde{y}_i)\}_{i=1}^{2N}$ where $i \in I = [2N]$ is the index of an augmented instance. The network is trained using three losses. The first loss uses the Mixup technique which generates a convex combination of pairs of examples as $x_i = \lambda x_a + (1-\lambda)x_b$, where $\lambda \in [0,1] \sim Beta(\alpha_m, \alpha_m)$; and $x_a$ and $x_b$ are two mini-batch examples. The Mixup loss is defined as:
+Following supervised contrastive learning, $N$ instances are randomly selected in each mini-batch and two random data augmentation operations are applied to each instance generating two data views. The resulting training mini-batch data is $$\{(x_i,\tilde{y}_i)\}_{i=1}^{2N}$$ where $$i \in I = [2N]$$ is the index of an augmented instance. The network is trained using three losses. The first loss uses the Mixup technique which generates a convex combination of pairs of examples as $x_i = \lambda x_a + (1-\lambda)x_b$, where $\lambda \in [0,1] \sim Beta(\alpha_m, \alpha_m)$; and $x_a$ and $x_b$ are two mini-batch examples. The Mixup loss is defined as:
 
 
 $$ \mathcal{L}_i^{MIX} = \lambda \mathcal{L}_a(z_i) + (1-\lambda) \mathcal{L}_b(z_i),$$
