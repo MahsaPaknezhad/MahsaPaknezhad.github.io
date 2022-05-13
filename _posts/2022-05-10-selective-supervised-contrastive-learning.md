@@ -87,7 +87,9 @@ $A(i)$ specifies the set of indices excluding $i$ and $$\mathcal{G}_i = \{g|g \i
 
 $$ \mathcal{L}^{CLS} = \sum_{(x_i,\tilde{y}_i) \in \mathcal{T}} \mathcal{L}_i^{CLS}(x_i) = \sum_{(x_i,\tilde{y}_i) \in \mathcal{T}} \mathcal{l}(\hat{p}(x_i), \tilde{y}_i)$$,
 
-where $x_i$ can refer to the augmented image. 
+where $x_i$ can refer to the augmented image. Finally, the third loss trains the classifier with similarity labels on the mini-batch data $\{(x_i, \tilde{y}_i)\}_{i=1}^{2N}$. The similarity loss is:
+
+$$\mathcal{L}^{SIM} = \sum_{i \in I} \sum_{j \in A(i)} \mathcal{l}(\hat{p}(x_i)\hat{p}(x_j), \mathbb{I}[P_{i'j'} \in \mathcal{G}]$$
 
 
 
