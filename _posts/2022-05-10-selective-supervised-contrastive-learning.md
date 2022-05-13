@@ -53,7 +53,7 @@ $$d(z_i, z_j) = \frac{z_i z_j^T}{\|z_i\|~\|z_j\|}$$
 
 They create a pseudo-label $\hat{y}_i$ for each example ($x_i$, $\tilde{y}_i$) by aggregating the original label from its top-k neighbors shown by $$\mathcal{N}_i$$ with the lowest cosine distance:
 
-$$\hat{q}_c(x_i) = \frac{1}{K} \sum_{\substrack{k=1\\ x_k \in \mathcal{N}_i}}^K \mathbb{I}[(\hat{y})_k=c], c \in [C]$$
+$$\hat{q}_c(x_i) = \frac{1}{K} \sum_{\substack{k=1\\ x_k \in \mathcal{N}_i}}^K \mathbb{I}[(\hat{y})_k=c], c \in [C]$$
 
 and use the pseudo-labels to approximate the clean class psoterior probabilities. The set of confident examples beloning to the c-th class is denoted by $\mathcal{T}_c$ and is defined as:
 
