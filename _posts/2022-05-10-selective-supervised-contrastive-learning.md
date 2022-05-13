@@ -41,10 +41,10 @@ In the following, I will explain how the confident pairs are identified and are 
 How to find confident examples?
 ------
 
-The noisy labeled dataset with $C$ different classes is denoted by $\tilde{D} = \{(x_i, \tilde{y}_i)\}_{i=1}^n$ where $n$ is the number of examples in the training dataset, $x_i$ is the $i^{th}$ example and $\tilde{y}_i\in [C]$ is the corresponding noisy label. Figure shows the architecture of the CL network in the paper. Each example is passed through an encoder, $f$, to get a high-dimensional representation of the example denoted by $v_i$. A classifier head receives $v_i$ and outputs a class prediction shown by $\hat{P}(x_i). A linear or non-linear projection maps $v_i$ to a lower dimensional representation $z_i$. 
+The noisy labeled dataset with $C$ different classes is denoted by $$\tilde{D} = \{(x_i, \tilde{y}_i)\}_{i=1}^n$$ where $n$ is the number of examples in the training dataset, $x_i$ is the $i^{th}$ example and $\tilde{y}_i\in [C]$ is the corresponding noisy label. Figure shows the architecture of the CL network in the paper. Each example is passed through an encoder, $f$, to get a high-dimensional representation of the example denoted by $v_i$. A classifier head receives $v_i$ and outputs a class prediction shown by $\hat{P}(x_i). A linear or non-linear projection maps $v_i$ to a lower dimensional representation $z_i$. 
 
 <p align="center">
-<img src="/images/SelectiveCL.png" width=400>
+<img src="/images/SelectiveCL.png" width=800>
 </p> 
 
 Confident examples are found by first measuring cosine distance between the low dimensional representations $z_i$, $z_j$ of each pair of examples
