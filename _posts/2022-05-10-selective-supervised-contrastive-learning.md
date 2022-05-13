@@ -30,7 +30,7 @@ In supervised Con (Sup-Con) [4], two augmentation operations are applied to each
 
 How to handle noisy labels?
 ------
-The proposed algorithm by the paper "Selective Supervised Contrastive Learning with Noisy Labels" denoted by Sel-Con consists of two steps:
+The proposed algorithm by the paper **Selective Supervised Contrastive Learning with Noisy Labels** denoted by Sel-Con consists of two steps:
 
 * Select pairs of examples that the algorithm is confident about their label
 * Train the network with the confident pairs using supervised contrastive learning
