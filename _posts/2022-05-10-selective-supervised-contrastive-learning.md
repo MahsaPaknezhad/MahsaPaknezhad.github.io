@@ -36,8 +36,6 @@ The proposed algorithm by the paper "Selective Supervised Contrastive Learning w
 
 **How to find confident examples?**
 
-Uses unsupervised training to initially train the network in the first few epochs
-
 Confident examples are found by first measuring cosine distance between the low dimensional representations $z_i$, $z_j$ of each pair of examples
 
 $$d(z_i, z_j) = \frac{z_i z_j^T}{\|z_i\|~\|z_j\|}$$
@@ -90,6 +88,13 @@ $$ \mathcal{L}^{CLS} = \sum_{(x_i,\tilde{y}_i) \in \mathcal{T}} \mathcal{L}_i^{C
 where $x_i$ can refer to the augmented image. Finally, the third loss trains the classifier with similarity labels on the mini-batch data $\{(x_i, \tilde{y}_i)\}_{i=1}^{2N}$. The similarity loss is:
 
 $$\mathcal{L}^{SIM} = \sum_{i \in I} \sum_{j \in A(i)} \mathcal{l}(\hat{p}(x_i)\hat{p}(x_j), \mathbb{I}[P_{i'j'} \in \mathcal{G}])$$
+
+The algorithm uses unsupervised training to initially train the network in the first few epochs. Once confident pairs are identificed, the network is trained using the overall loss below: 
+
+$$ \mathcal{L}^{ALL} = \mathcal{L}^{MIX} + \gamma_c \mathcal{L}^{CLS} + \gamma_s \mathcal{L}^{SIM} $$
+
+where $\gamma_c$ and $\gamma_s$ are loss weights. **The confident pairs are iteratively identified and are used to learn robust representations at each epoch. As a result, better confident pairs will result in better learned representations and better representations will identify better confident pairs**.  
+
 
 
 
