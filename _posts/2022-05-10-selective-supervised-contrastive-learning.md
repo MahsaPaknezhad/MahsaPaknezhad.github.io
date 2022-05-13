@@ -36,7 +36,8 @@ The proposed algorithm by the paper "Selective Supervised Contrastive Learning w
 In the following, I will explain how the confident pairs are identified and are used to train the network. 
 
 
-**How to find confident examples?**
+How to find confident examples?
+------
 
 Confident examples are found by first measuring cosine distance between the low dimensional representations $z_i$, $z_j$ of each pair of examples
 
@@ -57,7 +58,8 @@ where $\mathcal{l}$ refers to cross-entropy loss and $\gamma_c$ is a threshold f
 The confident example set for all classes is then defined as $\mathcal{T} = \bigcup_{c=1}^C \mathcal{T}_c$
 
 
-**How to select confident pairs?**
+How to select confident pairs?
+------
 
 
 The confident examples are transformed into a set of confident pairs as the union of two different sets. The first set is defined as shown below:
@@ -72,7 +74,8 @@ Where $\tilde{s}_{ij} = \mathbb{I}[\tilde{y}_i, \tilde{y}_j]$ and gamma is a dyn
 
 $$\mathcal{G} = \mathcal{G}' \cup \mathcal{G}''$$
 
-**How is the network trained?**
+How is the network trained?
+------
 
 Following supervised contrastive learning, $N$ instances are randomly selected in each mini-batch and two random data augmentation operations are applied to each instance generating two data views. The resulting training mini-batch data is $$\{(x_i,\tilde{y}_i)\}_{i=1}^{2N}$$ where $$i \in I = [2N]$$ is the index of an augmented instance. The network is trained using three losses. The first loss uses the Mixup technique which generates a convex combination of pairs of examples as $x_i = \lambda x_a + (1-\lambda)x_b$, where $\lambda \in [0,1] \sim Beta(\alpha_m, \alpha_m)$; and $x_a$ and $x_b$ are two mini-batch examples. The Mixup loss is defined as:
 
