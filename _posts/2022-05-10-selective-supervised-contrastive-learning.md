@@ -13,7 +13,7 @@ tags:
   - Noisy Labels
 ---
 
-Contrastive Learning is able to learn good latent representations that can be used to achieve high performance in downstream tasks. Supervised contrastive learning enhances the learned representations using supervised information. However, noisy supervised information corrupts the learned representations. In this blog post, I will summarize the paper published in CVPR 2022 that proposes an algorithm to learn high quality representations in existence of noisy supervised information. The title of this paper is **Selective Supervised Contrastive Learning with Noisy Labels [1]**. 
+Contrastive Learning is able to learn good latent representations that can be used to achieve high performance in downstream tasks. Supervised contrastive learning enhances the learned representations using supervised information. However, noisy supervised information corrupts the learned representations. In this blog post, I will summarize the paper published in CVPR 2022 that proposes an algorithm to learn high quality representations in existence of noisy supervised information. The title of this paper is **Selective Supervised Contrastive Learning with Noisy Labels**. 
 
 
 A brief on contrastive learning
@@ -30,7 +30,7 @@ In supervised Con (Sup-Con) [4], two augmentation operations are applied to each
 
 How to handle noisy labels?
 ------
-The proposed algorithm by the paper **Selective Supervised Contrastive Learning with Noisy Labels** denoted by Sel-Con consists of two steps:
+The proposed algorithm by the paper **Selective Supervised Contrastive Learning with Noisy Labels [1]** denoted by Sel-Con consists of two steps:
 
 * Select pairs of examples that the algorithm is confident about their label.
 * Train the network with the confident pairs using Sup-Con algorithm.
