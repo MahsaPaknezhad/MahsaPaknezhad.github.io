@@ -1,7 +1,7 @@
 ---
 title: "DL for Medical Image Registration"
 collection: teaching
-type: ""
+type: "Course"
 permalink: /teaching/2022_ICASSP
 venue: "2022 International Confererence on Acourstics, Speech & Signal Processing"
 date: 2022-05-26
