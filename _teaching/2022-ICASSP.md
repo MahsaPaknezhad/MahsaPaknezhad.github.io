@@ -8,4 +8,4 @@ date: 2022-05-26
 location: "Singapore"
 ---
 
-As part of the Biomedical Signal Analysis and Healthcare course held at the International Conference on Acoustics, Speech & Singal Processing Conference.  
+As part of the Biomedical Signal Analysis and Healthcare course held at the International Conference on Acoustics, Speech & Signal Processing Conference.  
