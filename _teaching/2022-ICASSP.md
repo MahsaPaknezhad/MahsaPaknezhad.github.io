@@ -3,7 +3,7 @@ title: "DL for Medical Image Registration"
 collection: teaching
 type: "Course"
 permalink: /teaching/2022_ICASSP
-venue: "2022 International Confererence on Acourstics, Speech & Signal Processing (ICASSP 2022)"
+venue: "2022 International Confererence on Acourstics, Speech & Signal Processing (ICASSP)"
 date: 2022-05-26
 location: "Singapore"
 ---
