@@ -1,5 +1,5 @@
 ---
-title: "Clustering"
+title: "Clustering Algorithms"
 collection: teaching
 type: "Course for ASTAR staff and University Students"
 permalink: /teaching/2021_Clustering
