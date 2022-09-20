@@ -1,7 +1,7 @@
 ---
 title: 'Using Radiomics for Tree Bark Identification'
 date: 2022-09-21
-permalink: /posts/2022/05/using-radiomics-for-tree-bark-identification/
+permalink: /posts/2022/09/using-radiomics-for-tree-bark-identification/
 header-includes:
    - \usepackage{amssymb}
    - \usepackage{amsmath}
