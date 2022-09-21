@@ -51,9 +51,9 @@ Radiomics is quantifying and extracting many imaging patterns including texture 
    
 These features are extracted from the region of interest in an image which is specified by a mask. We will give a brief explanation for each family of features:
 
-* Histogram-based features: These are the group of quantitative features that can be extracted from the histogram of the intensity values for the region of interest in the image. Examples of these features include **mean, maximum and minimum** intensity values, **variance, skewness, entropy** and **kurtosis**. 
+**Histogram-based features**: These are the group of quantitative features that can be extracted from the histogram of the intensity values for the region of interest in the image. Examples of these features include **mean, maximum and minimum** intensity values, **variance, skewness, entropy** and **kurtosis**. 
 
-* Texture-based features: These features aim to extract quantitative features that represent variations in the intensities within the region of interest. Examples of features in this family of features are:
+**Texture-based features**: These features aim to extract quantitative features that represent variations in the intensities within the region of interest. Examples of features in this family of features are:
 
 <p align="center">
 <img src="/images/texture-based-features.png" width=600>
@@ -62,7 +62,7 @@ These features are extracted from the region of interest in an image which is sp
 Extracting any of these features first requires specifying the direction of extraction. Any of the following directions can be selected:
 
 <p align="center">
-<img src="/images/direction.png" width=700>
+<img src="/images/direction.png" width=500>
 </p> 
 
 As an example extracting GLCM from a region of interest outputs a matrix. Elements of this matrix specify the number of times different combination of intensity values occur in the region of interest in that direction.
@@ -74,11 +74,20 @@ As an example extracting GLCM from a region of interest outputs a matrix. Elemen
 As can be seen, GLCM is not a quantitative feature per-se. Some of the quantitative features that can be extracted from GLCM are shown in the table below: 
 
 |Texture Matrix | Features | Description|
-|:-------      | :-------- |:-------- |
-|GLCM | Contrast | Measures the local variations in the gray-level co-occurrence matrix.|
-| | Correlation | Measures the joint probability occurrence of the specified pixel pairs.|
-| | Energy | Provides the sum of squared elements in the GLCM. Also known as uniformity or the angular second moment.|
-| | Homogeneity |Measures the closeness of the distribution of elements in the GLCM to the GLCM diagonal.|
+|:-------------- | :-------- |:-------- |
+|GLCM | Contrast | Measures the **local variations** in the gray-level co-occurrence matrix.|
+| | Correlation | Measures the **joint probability occurrence** of the specified pixel pairs.|
+| | Energy | Provides the sum of squared elements in the GLCM. Also known as **uniformity** or the angular second moment.|
+| | Homogeneity |Measures the **closeness of the distribution of elements** in the GLCM to the GLCM diagonal.|
+
+**Model-based features**: Parameterised models such as autoregressive models or fractal analysis models can be fitted on the region of interest. Once the parameters for these models are estimated, they are used as Radiomics features. 
+
+
+**Transform-based features**: Tranform-based features are features that are extracted after transfering the region of interest to a different space by applying a transformation function. Such transformation functions include *Fourier, Gabor* and *Harr wavelet* transform. Quantitative features such as histogram-based features are extracted from the transformed region of interest. 
+
+**Shape-based features**: Shape-based features describe geometric properties of the region of interest. Compactness, sphericity, density 2D/3D dimerters, axes and their ratios are examples of features in this family. 
+
+
 
 
 <p align="center">
