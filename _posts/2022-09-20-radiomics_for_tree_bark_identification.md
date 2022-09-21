@@ -1,6 +1,6 @@
 ---
 title: 'Using Radiomics for Tree Bark Identification'
-date: 2022-09-21
+date: 2022-09-20
 permalink: /posts/2022/09/using-radiomics-for-tree-bark-identification/
 header-includes:
    - \usepackage{amssymb}
