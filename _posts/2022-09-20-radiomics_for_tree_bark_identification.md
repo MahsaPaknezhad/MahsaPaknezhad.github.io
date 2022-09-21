@@ -75,7 +75,7 @@ As can be seen, GLCM is not a quantitative feature per-se. Some of the quantitat
 
 |Texture Matrix | Features | Description|
 |:-------------- | :-------- |:-------- |
-|GLCM | Contrast | Measures the **local variations** in the gray-level co-occurrence matrix.|
+|GLCM &nbsp; &nbsp; | Contrast | Measures the **local variations** in the gray-level co-occurrence matrix.|
 | | Correlation | Measures the **joint probability occurrence** of the specified pixel pairs.|
 | | Energy | Provides the sum of squared elements in the GLCM. Also known as **uniformity** or the angular second moment.|
 | | Homogeneity |Measures the **closeness of the distribution of elements** in the GLCM to the GLCM diagonal.|
@@ -83,9 +83,9 @@ As can be seen, GLCM is not a quantitative feature per-se. Some of the quantitat
 **Model-based features**: Parameterised models such as autoregressive models or fractal analysis models can be fitted on the region of interest. Once the parameters for these models are estimated, they are used as Radiomics features. 
 
 
-**Transform-based features**: Tranform-based features are features that are extracted after transfering the region of interest to a different space by applying a transformation function. Such transformation functions include *Fourier, Gabor* and *Harr wavelet* transform. Quantitative features such as histogram-based features are extracted from the transformed region of interest. 
+**Transform-based features**: Tranform-based features are features that are extracted after transfering the region of interest to a different space by applying a transformation function. Such transformation functions include **Fourier, Gabor** and **Harr wavelet** transform. Quantitative features such as histogram-based features are extracted from the transformed region of interest. 
 
-**Shape-based features**: Shape-based features describe geometric properties of the region of interest. Compactness, sphericity, density 2D/3D dimerters, axes and their ratios are examples of features in this family. 
+**Shape-based features**: Shape-based features describe geometric properties of the region of interest. **Compactness, sphericity, density 2D/3D dimerters, axes and their ratios** are examples of features in this family. 
 
 
 
