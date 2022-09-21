@@ -1,7 +1,7 @@
 ---
 title: 'Using Radiomics for Tree Bark Identification'
 date: 2022-06-10
-permalink: /posts/2022/06/selective-supervised-contrastive/
+permalink: /posts/2022/06/using-radiomics-for-tree-bark-identification/
 header-includes:
    - \usepackage{amssymb}
    - \usepackage{amsmath}
