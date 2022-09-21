@@ -67,15 +67,15 @@ Extracting any of these features first requires specifying the direction of extr
 <img src="/images/direction.png" width=500>
 </p> 
 
-As an example extracting GLCM from a region of interest outputs a matrix. Elements of this matrix specify the number of times different combination of intensity values occur in the region of interest in that direction.
+As an example, extracting GLCM from a region of interest outputs a matrix. Elements of this matrix specify the number of times different combination of intensity values occur in the region of interest in that direction.
  
 <p align="center">
 <img src="/images/glcm.png" width=700>
 </p> 
 
-As can be seen, GLCM is not a quantitative feature per-se. Some of the quantitative features that can be extracted from GLCM are shown in the table below: 
+As can be seen, GLCM is not a quantitative feature per-se but quantitative features are extracted from GLCM. Some of the quantitative features that can be extracted from GLCM are shown in the table below: 
 
-|<span style="display: inline-block; width:50px">Texture Matrix</span>| Features | Description|
+|<span style="display: inline-block; width:100px">Texture Matrix</span>| Features | Description|
 |:-------------- | :-------- |:-------- |
 |GLCM | Contrast | Measures the **local variations** in the gray-level co-occurrence matrix.|
 | | Correlation | Measures the **joint probability occurrence** of the specified pixel pairs.|
@@ -89,6 +89,10 @@ As can be seen, GLCM is not a quantitative feature per-se. Some of the quantitat
 
 **Shape-based features**: Shape-based features describe geometric properties of the region of interest. *Compactness, sphericity, density, 2D or 3D dimeters, axes and their ratios* are examples of features in this family. 
 
+Now that we have a better idea what Radiomics features are, we will proceed with extracting these features from our processed tree bark images. 
+
+## Radiomics Feature Extraction
+To extract Radiomics features from our dataset of tree bark images we take advantage of the [PyRadiomics](https://pyradiomics.readthedocs.io/en/latest/) library. This library 
 
 
 
