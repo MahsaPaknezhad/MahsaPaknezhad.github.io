@@ -19,6 +19,7 @@ Since the term was first coined in $2012$, Radiomics has widely been used for me
 
 In this blog, we aim to show that Radiomic features can be useful for analysis of images in many other domains. The example we have provided here shows that radiomic features can be used for tree bark identification. We use **Trunk12**, a publicly available dataset of tree bark images from [here](https://www.vicos.si/resources/trunk12/).
 
+## Trunk12 Dataset
 
 **Trunk12** consists of $393$ RGB images of tree barks of $12$ different trees that can be found in Slovenia. For each type of tree, there exists about $30$ jpeg images of resolution $3000 \times 4000$ pixels. The images are taken using the same camera Nikon COOLPIX S3000 and while following the same imaging setup: same distance, light conditions and in an upright position. The number of images in each class are shown below.
 
