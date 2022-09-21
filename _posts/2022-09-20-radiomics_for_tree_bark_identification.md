@@ -56,6 +56,8 @@ These features are extracted from the region of interest in an image which is sp
 
 **Histogram-based features**: These are the group of quantitative features that can be extracted from the histogram of the intensity values for the region of interest in the image. Examples of these features include *mean, max and min* intensity values, *variance, skewness, entropy* and *kurtosis*. 
 
+**Transform-based features**: Tranform-based features are features that are extracted after transfering the region of interest to a different space by applying a transformation function. Such transformation functions include *Fourier, Gabor* and *Harr wavelet* transform. Quantitative features such as histogram-based features are extracted from the transformed region of interest.
+
 **Texture-based features**: These features aim to extract quantitative features that represent variations in the intensities within the region of interest. Examples of features in this family of features are:
 
 <p align="center">
@@ -84,9 +86,6 @@ As can be seen, GLCM is not a quantitative feature per-se but quantitative featu
 | | Homogeneity |Measures the **closeness of the distribution of elements** in the GLCM to the GLCM diagonal.|
 
 **Model-based features**: Parameterised models such as autoregressive models or fractal analysis models can be fitted on the region of interest. Once the parameters for these models are estimated, they are used as Radiomics features. 
-
-
-**Transform-based features**: Tranform-based features are features that are extracted after transfering the region of interest to a different space by applying a transformation function. Such transformation functions include *Fourier, Gabor* and *Harr wavelet* transform. Quantitative features such as histogram-based features are extracted from the transformed region of interest. 
 
 **Shape-based features**: Shape-based features describe geometric properties of the region of interest. *Compactness, sphericity, density, 2D or 3D dimeters, axes and their ratios* are examples of features in this family. 
 
