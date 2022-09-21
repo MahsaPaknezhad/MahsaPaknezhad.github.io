@@ -1,7 +1,7 @@
 ---
-title: 'Selective Supervised Contrastive Learning with Noisy Labels'
+title: 'Selective Supervised Contrastive Learning'
 date: 2022-06-10
-permalink: /posts/2022/06/selective-supervised-contrastive-learning/
+permalink: /posts/2022/06/selective-supervised-contrastive/
 header-includes:
    - \usepackage{amssymb}
    - \usepackage{amsmath}
