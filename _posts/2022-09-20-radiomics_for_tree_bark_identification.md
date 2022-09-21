@@ -75,7 +75,7 @@ As can be seen, GLCM is not a quantitative feature per-se. Some of the quantitat
 
 |Texture Matrix | Features | Description|
 |:-------      | :-------- |:-------- |
-| | Contrast | Measures the local variations in the gray-level co-occurrence matrix.|
+|GLCM | Contrast | Measures the local variations in the gray-level co-occurrence matrix.|
 | | Correlation | Measures the joint probability occurrence of the specified pixel pairs.|
 | | Energy | Provides the sum of squared elements in the GLCM. Also known as uniformity or the angular second moment.|
 | | Homogeneity |Measures the closeness of the distribution of elements in the GLCM to the GLCM diagonal.|
