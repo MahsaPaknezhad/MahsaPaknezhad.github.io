@@ -53,7 +53,7 @@ Radiomics is quantifying and extracting many imaging patterns including texture 
    
 These features are extracted from the region of interest in an image which is specified by a mask. We will give a brief explanation for each family of features:
 
-**Histogram-based features**: These are the group of quantitative features that can be extracted from the histogram of the intensity values for the region of interest in the image. Examples of these features include **mean, maximum and minimum** intensity values, **variance, skewness, entropy** and **kurtosis**. 
+**Histogram-based features**: These are the group of quantitative features that can be extracted from the histogram of the intensity values for the region of interest in the image. Examples of these features include *mean, maximum and minimum* intensity values, *variance, skewness, entropy* and *kurtosis*. 
 
 **Texture-based features**: These features aim to extract quantitative features that represent variations in the intensities within the region of interest. Examples of features in this family of features are:
 
@@ -75,7 +75,7 @@ As an example extracting GLCM from a region of interest outputs a matrix. Elemen
 
 As can be seen, GLCM is not a quantitative feature per-se. Some of the quantitative features that can be extracted from GLCM are shown in the table below: 
 
-|<div style="width:290px">Texture Matrix</div>| Features | Description|
+|<span style="display: inline-block; width:500px">Texture Matrix</span>| Features | Description|
 |:-------------- | :-------- |:-------- |
 |GLCM | Contrast | Measures the **local variations** in the gray-level co-occurrence matrix.|
 | | Correlation | Measures the **joint probability occurrence** of the specified pixel pairs.|
@@ -85,9 +85,9 @@ As can be seen, GLCM is not a quantitative feature per-se. Some of the quantitat
 **Model-based features**: Parameterised models such as autoregressive models or fractal analysis models can be fitted on the region of interest. Once the parameters for these models are estimated, they are used as Radiomics features. 
 
 
-**Transform-based features**: Tranform-based features are features that are extracted after transfering the region of interest to a different space by applying a transformation function. Such transformation functions include **Fourier, Gabor** and **Harr wavelet** transform. Quantitative features such as histogram-based features are extracted from the transformed region of interest. 
+**Transform-based features**: Tranform-based features are features that are extracted after transfering the region of interest to a different space by applying a transformation function. Such transformation functions include *Fourier, Gabor* and *Harr wavelet* transform. Quantitative features such as histogram-based features are extracted from the transformed region of interest. 
 
-**Shape-based features**: Shape-based features describe geometric properties of the region of interest. **Compactness, sphericity, density, 2D or 3D dimeters, axes and their ratios** are examples of features in this family. 
+**Shape-based features**: Shape-based features describe geometric properties of the region of interest. *Compactness, sphericity, density, 2D or 3D dimeters, axes and their ratios* are examples of features in this family. 
 
 
 
