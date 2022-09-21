@@ -27,7 +27,7 @@ Since the term was first coined in $2012$, Radiomics has widely been used for me
 A few examples of images in this dataset together with their tree type are shown in the figure below. 
 
 <p align="center">
-<img src="/images/image_examples_original.png" width=800>
+<img src="/images/image_examples_original.png" width=750>
 </p> 
 
 To prepare this dataset for radiomic feature extraction we performed a few preprocessing steps on the images. These steps are explained in the following section. 
@@ -37,23 +37,41 @@ To prepare this dataset for radiomic feature extraction we performed a few prepr
 All images went throught the following preprocessing steps. First, the images were converted to grayscale images. Second, squares of size $3000 \times 3000$ pixels were cropped from the center of images. Third, the cropped squares were downsampled to the size $250 \times 250$ pixels. Finally, image contrast was increased so that the intensity values in each image covered the range $[0,255]$. Below, we show the same images that were shown above after going through these preprocessing steps. 
 
 <p align="center">
-<img src="/images/image_examples_processed.png" width=800>
+<img src="/images/image_examples_processed.png" width=750>
 </p> 
 
 In the next step, we will extract Radiomic features from the processed images. But first we will provide a brief introduction on Radiomic features. 
 
 ## What are Radiomic Features?
-Radiomics is quantifying and extracting many imaging patterns including texture and shape features from images using automatic and semi-automatic algorithms. ​These features, usually invisible to the human-eye, can be extracted non-subjectively and used to train and validate models for prediction and early stratification of patients. Radiomic features are categorized into 5 group of features
+Radiomics is quantifying and extracting many imaging patterns including texture and shape features from images using automatic and semi-automatic algorithms. ​These features, usually invisible to the human-eye, can be extracted non-subjectively and used to train and validate models for prediction and early stratification of patients. Radiomic features are categorized into five group of features.
 
 <p align="center">
-<img src="/images/radiomics-features.png" width=800>
+<img src="/images/radiomics-features.png" width=400>
 </p> 
    
-We will give a brief explanation for each category:
+These features are extracted from the region of interest in an image which is specified by a mask. We will give a brief explanation for each family of features:
 
-* Histogram-based features: These are the group of quantitative features that can be extracted from the histogram of the intensity values for the region of interest in the image. Examples of these features include mean, maximum and minimum intensity values, variance, skewness, entropy and kurtosis. 
+* Histogram-based features: These are the group of quantitative features that can be extracted from the histogram of the intensity values for the region of interest in the image. Examples of these features include **mean, maximum and minimum** intensity values, **variance, skewness, entropy** and **kurtosis**. 
 
-* Texture-based features: 
+* Texture-based features: These features aim to extract quantitative features that represent variations in the intensities within the region of interest. Examples of features in this family of features are:
+
+<p align="center">
+<img src="/images/texture-based-features.png" width=700>
+</p> 
+
+Extracting any of these features first requires to specify the direction for which a feature is extracted. Any of the following directions can be selected:
+
+<p align="center">
+<img src="/images/directions.png" width=700>
+</p> 
+
+As an example extracting GLCM from the region of interest outputs a matrix. Elements of this matrix specify the number of times different combination of intensity values occur in the region of interest in that direction.
+ 
+<p align="center">
+<img src="/images/glcm.png" width=700>
+</p> 
+
+
 <p align="center">
 <img src="/images/example_radiomics.png" width=800>
 </p> 
