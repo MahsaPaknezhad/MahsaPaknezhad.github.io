@@ -1,5 +1,5 @@
 ---
-title: 'Selective Supervised Contrastive Learning'
+title: 'Using Radiomics for Tree Bark Identification'
 date: 2022-06-10
 permalink: /posts/2022/06/selective-supervised-contrastive/
 header-includes:
