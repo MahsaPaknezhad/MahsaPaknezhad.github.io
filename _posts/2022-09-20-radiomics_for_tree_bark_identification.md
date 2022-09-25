@@ -92,7 +92,28 @@ As can be seen, GLCM is not a quantitative feature per-se but quantitative featu
 Now that we have a better idea what Radiomics features are, we will proceed with extracting these features from our processed tree bark images. 
 
 ## Radiomic Feature Extraction
-To extract Radiomics features from our dataset of tree bark images we take advantage of the [PyRadiomics](https://pyradiomics.readthedocs.io/en/latest/) library. This library 
+To extract Radiomics features from our dataset of tree bark images we take advantage of the [PyRadiomics](https://pyradiomics.readthedocs.io/en/latest/) library. This library can extract up to 120 radiomic features (both 2D and 3D). One limitation of PyRadiomics is that it is developed for medical images so it only works for medical image file formats such as NIfTI, NRRD, MHA, etc. To address this problem, we converted our images to NIfTI images using the following hack: 
+
+```
+import nibabel as nib
+
+ # Save an image in NIfTI format
+ img = Image.open(file)
+ arr = np.asarray(img).astype('float')
+ arr = np.expand_dims(arr, axis=2)
+ empty_header = nib.Nifti1Header()
+ affine =  np.eye(4)
+ another_img = nib.Nifti1Image(arr, affine, empty_header)
+ file = file.replace(data_dir, nii_dir)
+ file = file.replace('.JPG', '.nii.gz')
+ path = file.replace(file.split('/')[-1], "")
+ os.makedirs(path, exist_ok = True)
+ nib.save(another_img, file)
+```
+
+
+
+Figure below shows the extracted features from one image in our dataset. 
 
 
 
