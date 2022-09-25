@@ -99,27 +99,32 @@ import nibabel as nib
 from PIL import Image
 import numpy as np
 
- # Save an image in NIfTI format
- img = Image.open(file)
- arr = np.asarray(img).astype('float')
- arr = np.expand_dims(arr, axis=2)
- empty_header = nib.Nifti1Header()
- affine =  np.eye(4)
- another_img = nib.Nifti1Image(arr, affine, empty_header)
- file = file.replace(data_dir, nii_dir)
- file = file.replace('.JPG', '.nii.gz')
- path = file.replace(file.split('/')[-1], "")
- os.makedirs(path, exist_ok = True)
- nib.save(another_img, file)
+# Location of the dataset
+data_dir = '../data/trunk12'
+
+# Location where NIfTI images are written 
+nii_dir = f'../data/trunk12_nii
+
+# Open a jpeg image and write it in NIfTI format
+img = Image.open(jpg_file)
+arr = np.asarray(img).astype('float')
+arr = np.expand_dims(arr, axis=2)
+empty_header = nib.Nifti1Header()
+affine =  np.eye(4)
+nifti_img = nib.Nifti1Image(arr, affine, empty_header)
+nifti_file = file.replace(data_dir, nii_dir)
+nifti_file = nifti_file.replace('.JPG', '.nii.gz')
+path = nifti_file.replace(nifti_file.split('/')[-1], "")
+os.makedirs(path, exist_ok = True)
+nib.save(nifti_img, nifti_file)
 ```
 
-As can be seen, we have defined an empty header with an identity matrix for the orientation of the image. The same header is defined for all jpeg images in our dataset. As a result, the extracted Radiomic features from these images are comparable. PyRadiomics also requires a mask file that specifies the region of interest in the input image. For our case, we plan to extract features from the entire image. Therefore, we generate a mask file that specifies the whole image as shown below:
+As can be seen, we have defined an empty header with an identity matrix for the orientation of the image. The same header is defined for all jpeg images in our dataset. As a result, the extracted Radiomic features from these images are comparable. PyRadiomics also requires a mask file that specifies the region of interest to extract features from in the input image. For our case, we plan to extract features from the entire image. Therefore, we generate a mask file that specifies the whole image as shown below:
 
 ```python
 import nibabel as nib
 from PIL import Image
 import numpy as np
-
 
 # Write a mask file in NIfTI format
 mask = np.ones(img.shape) *255
@@ -130,11 +135,10 @@ mask_name = "../outputs/mask.nii.gz"
 empty_header = nib.Nifti1Header()
 affine = np.eye(4)
 mask_img = nib.Nifti1Image(mask, affine, empty_header)
-print(another_img.header.get_data_shape())
 nib.save(mask_img, mask_name)
 ```
 
-Now, we can extract Radiomic features from the generated NIfTI images using the mask file as shown in the following:  
+Above, we specify the label for the region of interest with 255. Now, we can extract Radiomic features from the generated NIfTI images using the mask file and the label as shown in the following:  
 
 ```python
 import radiomics
@@ -144,11 +148,12 @@ from radiomics import featureextractor
 extractor = featureextractor.RadiomicsFeatureExtractor(force2D=True)
 output = extractor.execute(nifti_file), mask_file, label=255)
 ```
-Figure below shows the extracted features and thier values from an image in our dataset using PyRadiomics: 
+Figure below shows the extracted features by PyRadiomics and their values from an image in our dataset: 
 
 <p align="center">
 <img src="/images/example_radiomics.png" width=800>
 </p> 
+
 
 
 
