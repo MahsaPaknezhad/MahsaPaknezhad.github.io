@@ -92,10 +92,12 @@ As can be seen, GLCM is not a quantitative feature per-se but quantitative featu
 Now that we have a better idea what Radiomics features are, we will proceed with extracting these features from our processed tree bark images. 
 
 ## Radiomic Feature Extraction
-To extract Radiomics features from our dataset of tree bark images we take advantage of the [PyRadiomics](https://pyradiomics.readthedocs.io/en/latest/) library. This library can extract up to 120 radiomic features (both 2D and 3D). One limitation of PyRadiomics is that it is developed for medical images so it only works for medical image file formats such as NIfTI, NRRD, MHA, etc. To address this problem, we converted our images to NIfTI images using the following hack: 
+To extract Radiomics features from our dataset of tree bark images we take advantage of the [PyRadiomics](https://pyradiomics.readthedocs.io/en/latest/) library. This library can extract up to 120 radiomic features (both 2D and 3D). One limitation of PyRadiomics is that it is developed for medical images so it can only extract features from medical images with file formats such as NIfTI, NRRD, MHA, etc. These file formats usually have a header which contains information about the patient, acquisition parameters and orientation in space so that the stored image can be unambigiuosly interpreted. To address this problem, we converted our jpeg images to NIfTI images using the following hack: 
 
 ```python
 import nibabel as nib
+from PIL import Image
+import numpy as np
 
  # Save an image in NIfTI format
  img = Image.open(file)
@@ -111,11 +113,7 @@ import nibabel as nib
  nib.save(another_img, file)
 ```
 
-
-
-Figure below shows the extracted features from one image in our dataset. 
-
-
+As can be seen, we have defined an empty header with an identity matrix for the orientation of the image. The same header is defined for all jpeg images in our dataset. As a result, the extracted Radiomic features from these images are comparable. Figure below shows the extracted features from one image in our dataset using PyRadiomics. 
 
 <p align="center">
 <img src="/images/example_radiomics.png" width=800>
