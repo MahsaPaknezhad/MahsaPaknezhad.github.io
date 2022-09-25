@@ -21,13 +21,63 @@ In this blog, we aim to show that Radiomic features can be useful for analysis o
 
 ## Trunk12 Dataset
 
-**Trunk12** consists of $393$ RGB images of tree barks captured from $12$ types of trees that can be found in Slovenia. For each type of tree, there exists about $30$ jpeg images of resolution $3000 \times 4000$ pixels. The images are taken using the same camera Nikon COOLPIX S3000 and while following the same imaging setup: same distance, light conditions and in an upright position. The number of images in each class are shown below.
+**Trunk12** consists of $393$ RGB images of tree barks captured from $12$ types of trees that can be found in Slovenia. For each type of tree, there exists about $30$ jpeg images of resolution $3000 \times 4000$ pixels. The images are taken using the same camera Nikon COOLPIX S3000 and while following the same imaging setup: same distance, light conditions and in an upright position. The following code plots the number of images in each class in this dataset:
+
+```python
+import torchvision
+
+# Location of the dataset
+data_dir = '../data/trunk12'
+
+# Read images from the dataset directory
+dataset = torchvision.datasets.ImageFolder(root=data_dir)
+
+# Show the number of images in each class
+plt.figure(figsize=[15, 5])
+p = sns.countplot(dataset.targets, palette=['#2F3C7E', '#CCCCCC'])
+p.set_xticklabels(dataset.classes);
+```
+
+The number of images in each class are shown below.
 
 <p align="center">
 <img src="/images/num_of_images_per_class.png" width=800>
 </p> 
 
-A few examples of images in this dataset together with their tree type are shown in the figure below. 
+The code below shows a few examples of images in this dataset together with their tree type. 
+
+```python
+import torchvision.transforms as transforms
+import matplotlib.pyplot as plt
+from PIL import Image
+import random
+import torch
+
+# Batch size for the data loader
+batch_size = 32
+
+# Generate a dataloader for the dataset
+data_loader = torch.utils.data.DataLoader(dataset,
+                                           batch_size=batch_size,
+                                           shuffle=True)
+n = 6
+indices = random.sample(range(0, len(dataset.imgs)),n)
+batch = [dataset.imgs[i] for i in indices]
+trans = transforms.ToTensor()
+
+plt.figure(figsize=[15,5])
+for i in range(n):
+    img = Image.open(batch[i][0])
+    img = trans(img)
+    img = torch.permute(img, (1,2,0))
+    target = dataset.classes[batch[i][1]]
+    plt.subplot(1,n,i+1)
+    plt.imshow(img)
+    plt.title(target)
+plt.tight_layout()
+plt.show()
+```
+The output of this code is shown in the following figure. 
 
 <p align="center">
 <img src="/images/image_examples_original.png" width=850>
@@ -153,6 +203,26 @@ Figure below shows the extracted features by PyRadiomics and their values from a
 <p align="center">
 <img src="/images/example_radiomics.png" width=800>
 </p> 
+
+To extract radiomic features from all images in our dataset, we can generate an excel sheet that contains the location of all the NIfTI images in our dataset, their corresponding mask and label and pass this excel sheet to PyRadiomics. The same mask file and label is used for all images. Below we show how the excel sheet is generated:
+
+```python
+
+import csv
+import numpy as np
+import pandas as pd
+
+# Write a csv file that contains the location of each NIfTI image in the train set, its mask file and label 
+pyradiomics_header = ('Image','Mask', 'Label')
+m_arr = [mask_name] * len(dataset.imgs)
+img_label = dataset.imgs
+rows = [(il[0].replace(data_dir, nii_dir).replace('.JPG', '.nii.gz'), m, 255) for m, il in zip(m_arr, img_label)]
+rows.insert(0, pyradiomics_header)
+arr = np.asarray(rows)
+np.savetx
+t('../outputs/pyradiomics_samples.csv', arr, fmt="%s", delimiter=",")
+ds = pd.read_csv('../outputs/pyradiomics_samples.csv')
+``` 
 
 
 
