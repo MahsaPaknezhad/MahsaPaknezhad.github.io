@@ -94,7 +94,7 @@ Now that we have a better idea what Radiomics features are, we will proceed with
 ## Radiomic Feature Extraction
 To extract Radiomics features from our dataset of tree bark images we take advantage of the [PyRadiomics](https://pyradiomics.readthedocs.io/en/latest/) library. This library can extract up to 120 radiomic features (both 2D and 3D). One limitation of PyRadiomics is that it is developed for medical images so it only works for medical image file formats such as NIfTI, NRRD, MHA, etc. To address this problem, we converted our images to NIfTI images using the following hack: 
 
-```
+```python
 import nibabel as nib
 
  # Save an image in NIfTI format
