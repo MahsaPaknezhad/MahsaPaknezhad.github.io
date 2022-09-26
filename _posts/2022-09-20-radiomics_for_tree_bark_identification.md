@@ -54,13 +54,6 @@ from PIL import Image
 import random
 import torch
 
-# Batch size for the data loader
-batch_size = 32
-
-# Generate a dataloader for the dataset
-data_loader = torch.utils.data.DataLoader(dataset,
-                                           batch_size=batch_size,
-                                           shuffle=True)
 n = 6
 indices = random.sample(range(0, len(dataset.imgs)),n)
 batch = [dataset.imgs[i] for i in indices]
@@ -88,7 +81,7 @@ To prepare this dataset for radiomic feature extraction we perform a few preproc
 
 ## Preprocessing
 
-All images go throught the following preprocessing steps. First, the images are converted to grayscale. Second, squares of size $3000 \times 3000$ pixels are cropped from the center of images. Third, the cropped squares are downsampled to the size $250 \times 250$ pixels. Finally, image contrast is increased so that the intensity values in each image covered the range $[0,255]$. The preprocessing code is provided below:
+All images go throught the following preprocessing steps. First, the images are converted to grayscale. Second, squares of size $3000 \times 3000$ pixels are cropped from the center of images. Third, the cropped squares are downsampled to the size $250 \times 250$ pixels. Finally, image contrast is increased so that the intensity values in each image coveres the range $[0,255]$. The preprocessing code is provided below:
 
 ```python
 import numpy as np
@@ -98,10 +91,9 @@ import os
 
 crops_s = 3000
 new_s = 256
-imgs = dataset.imgs
 half_crop_s = int(crop_s/2)
 
-for file, label in imgs:
+for file, label in dataset.imgs:
 
     # Open an image
     img = Image.open(file)
@@ -120,16 +112,7 @@ for file, label in imgs:
     arr = np.asarray(img).astype('float')
     arr = (arr - extrema[0])/ (extrema[1] - extrema[0]) * 255
 
-    # Write the image in nifti format
-    arr = np.expand_dims(arr, axis=2)
-    empty_header = nib.Nifti1Header()
-    affine =  np.eye(4)
-    another_img = nib.Nifti1Image(arr, affine, empty_header)
-    file = file.replace(data_dir, nii_dir)
-    file = file.replace('.JPG', '.nii.gz')
-    path = file.replace(file.split('/')[-1], "")
-    os.makedirs(path, exist_ok = True)
-    nib.save(another_img, file)
+    # Write the image ...
 ```
 
 Below, we show the same images that were shown above after going through these preprocessing steps. 
@@ -141,7 +124,7 @@ Below, we show the same images that were shown above after going through these p
 In the next step, we extract Radiomic features from the processed images. But first we provide a brief introduction on Radiomic features. 
 
 ## What are Radiomic Features?
-Radiomics is quantifying and extracting many imaging patterns including texture and shape features from images using automatic and semi-automatic algorithms. ​These features, usually invisible to the human-eye, can be extracted non-subjectively and used to train and validate models for prediction and early stratification of patients. Radiomic features are categorized into five group of features.
+Radiomics is quantifying and extracting many imaging patterns including texture and shape features from images using automatic and semi-automatic algorithms. ​These features, usually invisible to the human-eye, can be extracted non-subjectively and used to train and validate models for prediction and early stratification of patients. Radiomic features are categorized into five groups of features.
 
 <p align="center">
 <img src="/images/radiomics-features.png" width=550>
@@ -165,7 +148,7 @@ Extracting any of these features first requires specifying the direction of extr
 <img src="/images/direction.png" width=500>
 </p> 
 
-As an example, extracting GLCM from a region of interest outputs a matrix. Elements of this matrix specify the number of times different combination of intensity values occur in the region of interest in that direction.
+As an example, extracting GLCM in the horizontal direction from a region of interest outputs a matrix. Elements of this matrix specify the number of times different combination of intensity values occur in the region of interest horizontally.
  
 <p align="center">
 <img src="/images/glcm.png" width=700>
@@ -208,13 +191,13 @@ empty_header = nib.Nifti1Header()
 affine =  np.eye(4)
 nifti_img = nib.Nifti1Image(arr, affine, empty_header)
 nifti_filename = jpg_filename.replace(data_dir, nii_dir)
-nifti_file = nifti_filename.replace('.JPG', '.nii.gz')
+nifti_filename = nifti_filename.replace('.JPG', '.nii.gz')
 path = nifti_filename.replace(nifti_filename.split('/')[-1], "")
 os.makedirs(path, exist_ok = True)
 nib.save(nifti_img, nifti_filename)
 ```
 
-As can be seen, we have defined an empty header with an identity matrix for the affine transform matrix. The affine transform matrix gives the relationship between voxel coordinates and world coordinates. The same header and affine transform matrix is defined for all jpeg images in our dataset. As a result, the extracted Radiomic features from these images are comparable. PyRadiomics also requires a mask file that specifies the region of interest to extract features from in the input image. For our case, we plan to extract features from the entire image. Therefore, we generate a mask file that covers the whole image as shown below:
+As can be seen, we have defined an empty header with an identity matrix for the affine transform matrix. The affine transform matrix gives the relationship between pixel or voxel coordinates and world coordinates. The same header and affine transform matrix is defined for all jpeg images in our dataset. As a result, the extracted Radiomic features from these images are comparable. PyRadiomics also requires a mask file that specifies the region of interest to extract features from in the input image. For our case, we plan to extract features from the entire image. Therefore, we generate a mask file that covers *almost* the whole image as shown below. The reason we don't set the mask to cover the whole image is that PyRadiomics currently doesn't support this. 
 
 ```python
 import nibabel as nib
@@ -250,7 +233,7 @@ Figure below shows the extracted features by PyRadiomics and their values from a
 <img src="/images/example_radiomics.png" width=800>
 </p> 
 
-To extract radiomic features from all images in our dataset, we can generate an excel sheet that contains the location of all the NIfTI images in our dataset together with the mask file and label and pass this excel sheet to PyRadiomics for feature extraction. The same mask file and label is used for all images. Below we show how the excel sheet is generated:
+As shown, the range of feature values is between $0$ and $10^9$. To extract radiomic features from all images in our dataset, we can generate an excel sheet that contains the location of all the NIfTI images in our dataset together with the mask file and label and pass this excel sheet to PyRadiomics for feature extraction. The same mask file and label is used for all images. Below we show how the excel sheet is generated:
 
 ```python
 
@@ -266,7 +249,7 @@ rows.insert(0, pyradiomics_header)
 arr = np.asarray(rows)
 np.savetxt('../outputs/pyradiomics_samples.csv', arr, fmt="%s", delimiter=",")
 ``` 
-Later, this excel sheet will be passed as input to PyRadiomics as shown below:
+Next, this excel sheet is passed as input to PyRadiomics as shown below:
 
 ```python
 # Run Pyradiomics on pyradiomics_sample.csv, output to pyradi_features_3000_256.csv
@@ -310,11 +293,11 @@ pyradi_original_norm['target'] = dataset.targets
 pyradi_original_norm = pyradi_original_norm.dropna(axis=1, how='all')
 ```
 
-Removing features with nan values after normalization reduces the number of Radiomic features to $90$. 
+Removing features with ```nan``` values after normalization reduces the number of Radiomic features to $90$. Next, we proceed with training different classifiers on these features. 
 
 # Training Classifiers 
 
-We then define a function called ```evaluate_model``` that trains and evaluates an input model on the input dataset using k-fold cross validation. This function measures precision, recall, accuracy and F$1$ score as the evaluation metrics for the input model and dataset. This function is defined below: 
+We define a function called ```evaluate_model``` that trains and evaluates an input model on the input dataset using k-fold cross validation. This function measures precision, recall, accuracy and F$1$ score as the evaluation metrics for the input model and dataset. This function is defined below: 
 
  
 ```python
@@ -329,7 +312,7 @@ from sklearn.pipeline import make_pipeline
 import statistics
 from sklearn.metrics import matthews_corrcoef
 
-# Function to evaluate a classification model using KFold cross validation
+# Function to evaluate a classification model using k-fold cross validation
 def evaluate_model(model, df, y, calc_auc=False):
     auc_lr=[]
     pre_lr=[]
@@ -345,7 +328,7 @@ def evaluate_model(model, df, y, calc_auc=False):
     cv = StratifiedKFold(n_splits=7,  shuffle=False)
     for train_index, test_index in cv.split(df, y):
        
-       # Get a certain fold
+       # Get a fold
         X_train, X_test = df.iloc[train_index], df.iloc[test_index]
         Y_train, Y_test= y.iloc[train_index], y.iloc[test_index]
 
@@ -438,7 +421,7 @@ if calc_auc: print("AUC:\t %.02f"% stats_svc[8])
 print("F1:\t %.02f"% stats_svc[9])
 ```
 
-The output of this code prints the measured evaluation metrics for the SVM classifier on tree bark images for training and test data.
+This code prints the measured evaluation metrics for the SVM classifier on tree bark images for training and test data. Now, we compare different classifiers using these evaluation metrics. 
 
 # Evaluation Results 
 We tested multiple models including XGBoost, SVM and Random Forest on our dataset and compared our results with the results of the paper (Boudra et al, $2018$) for this dataset in the table below. Boudra et al. propose a novel texture descriptor and use this descriptor to guide classification of tree bark images. We first plot the precision-recall curve for each tested model as shown below:
@@ -465,9 +448,9 @@ All measurements are done using *weighted averaging*.
 
 # Conclusion
 
-In this blog, we showed that Radiomics analysis can be as useful in other areas as in medical domain. As an example, we showed how Radiomic features can be useful for classifying tree bark images. We used PyRadiomics library to extract Radiomic features from Trunk12 dataset. Although this library can only work with medical image file formats, we showed how we can hack our way through by converting our jpeg images to NIfTI file format. We then trained multiple classifiers on the extracted Radiomic features and compared their performance.
+In this blog, we showed that Radiomics analysis can be as useful in other areas as in medical domain. As an example, we showed how Radiomic features can  help classify tree bark images. We used PyRadiomics library to extract Radiomic features from the Trunk12 dataset. Although this library can only work with medical image file formats, we showed how we can hack our way through by converting our jpeg images to NIfTI images. We then trained multiple classifiers on the extracted Radiomic features from these NIfTI images and compared their performance.
 
-One topic that is important but not covered in this blog is feature selection. Many times, using ony a few carefully selected features have more predictive capability than using all the extracted features. Although, using all the Radiomic feature resulted in the highest classification performance in the example in this blog, it is worth considering different feature selection methods instead of passing all the Radiomic features to your classifier.     
+One topic that is important but not covered in this blog is feature selection. Many times, using ony a few carefully selected Radiomic features have more predictive capability than using all the extracted features. Although, using all the Radiomic feature resulted in the highest classification performance in the example in this blog, it is worth considering different feature selection methods in *your* projects instead of passing all the Radiomic features to your classifier.     
 
 # Reference
 
