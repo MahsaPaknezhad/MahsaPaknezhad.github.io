@@ -269,10 +269,13 @@ ds = pd.read_csv('../outputs/pyradiomics_samples.csv')
 Later, this excel sheet will be passed as input to PyRadiomics as shown below:
 
 ```python
-# Run Pyradiomics on pyradiomics_sample.csv, output to pyradi_features.csv
+# Run Pyradiomics on pyradiomics_sample.csv, output to pyradi_features_3000_256.csv
 !pyradiomics -o ../outputs/pyradi_features_{crop_s}_{new_s}.csv -f csv ../outputs/pyradiomics_samples.csv &> ../outputs/log.txt
 ```
-The output feature values are saved in file pyradi_features_3000_256.csv for each image in the dataset. Now, we can open this file and have a look at it. The first 25 columns in this file contain information about parameters that were used for feature extraction. The rest of the columns contain the extracted features. This is a total of 107 Radiomic features.  
+
+# Radiomic Feature Processing
+
+The output feature values are saved in the file pyradi_features_3000_256.csv for each image in the dataset. Now, we can open this file and have a look at it. The first 25 columns in this file contain information about parameters that were used for feature extraction. The rest of the columns contain the extracted features. This is a total of 107 Radiomic features.  
 
 ```python
 import pandas as pd
@@ -305,7 +308,11 @@ pyradi_original_norm['target'] = dataset.targets
 pyradi_original_norm = pyradi_original_norm.dropna(axis=1, how='all')
 ```
 
-These steps reduce the number of Radiomic featurs to 90. We then define a function called ```evaluate_mode``` that trains and evaluates an input model on the input dataset using kfold cross validation. This function measures precision, recall, accuracy and F1 score for the input model and dataset. This function is defined below: 
+These steps reduce the number of Radiomic featurs to 90. 
+
+# Training Classifiers 
+
+We then define a function called ```evaluate_mode``` that trains and evaluates an input model on the input dataset using kfold cross validation. This function measures precision, recall, accuracy and F1 score for the input model and dataset. This function is defined below: 
 
  
 ```python
