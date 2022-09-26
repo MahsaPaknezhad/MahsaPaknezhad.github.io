@@ -196,7 +196,7 @@ import numpy as np
 data_dir = '../data/trunk12'
 
 # Location where NIfTI images are written 
-nii_dir = f'../data/trunk12_nii
+nii_dir = f'../data/trunk12_nii'
 
 # Open a jpeg image and write it in NIfTI format
 img = Image.open(jpg_file)
@@ -400,8 +400,66 @@ def evaluate_model(model, df, y, calc_auc=False):
     return avg_pre_lrt, avg_rec_lrt, avg_acc_lrt, avg_auc_lrt, avg_f1_lrt, avg_pre_lr, avg_rec_lr, avg_acc_lr, avg_auc_lr, avg_f1_lr
 ```
 
+For instance, to test a SVM classifier on our dataset we run the following code:
 
+```python
+from sklearn.svm import SVC
 
+# Get the class labels and drop the class column
+Y = pyradi_original_norm['target']
+pyradi_original_norm = pyradi_original_norm.drop('target', axis=1)
+
+# Evaluate an SVM classifier
+calc_auc = True
+model = SVC(kernel='poly', degree=4, probability=True)
+stats_svc = evaluate_model(model, pyradi_original_norm, Y, calc_auc)
+
+print("---------------TRAIN---------------")
+print("PRE:\t %.02f"% stats_svc[0])
+print("REC:\t %.02f"% stats_svc[1])
+print("ACC:\t %.02f"% stats_svc[2])
+if calc_auc: print("AUC:\t %.02f"% stats_svc[3])
+print("F1:\t %.02f"% stats_svc[4])
+
+print("---------------TEST---------------")
+print("PRE:\t %.02f"% stats_svc[5])
+print("REC:\t %.02f"% stats_svc[6])
+print("ACC:\t %.02f"% stats_svc[7])
+if calc_auc: print("AUC:\t %.02f"% stats_svc[8])
+print("F1:\t %.02f"% stats_svc[9])
+```
+
+We tested multiple models including XGBoost, SVM and Random Forest on our dataset and compared our results with the results of the paper (Boudra et al, 2018) for this dataset in the table below. Boudra et al. propose a novel texture descriptor and use this descriptor to guide classification of tree bark images. We also plot the precision-recall curve for each tested model which are shown below:
+
+XGBoost  | SVM | Random Forest
+:-------------:|:-------------:|:-------------:
+<img src="plots/prec_recall_xgboost_crop_s_3000_new_s_256.png" width="160">  | <img src="plots/prec_recall_svm_crop_s_3000_new_s_256.png" width="160">  | <img src="plots/prec_recall_rf_crop_s_3000_new_s_256.png" width="160">
+
+Logistic Regression | SGD  | Boudra et al. 2018
+:-------------:|:-------------:|:-------------:
+<img src="plots/prec_recall_lr_crop_s_3000_new_s_256.png" width="160"> | <img src="plots/prec_recall_sgd_crop_s_3000_new_s_256.png" width="160"> | <img src="plots/prec_recall_boudra.png" width="160">
+
+*AP* refers to average precision. The measurements are done using *micro averaging*. Our results show that the SVM classifier outperforms all the other methods. Other evaluation metrics measured by the ```evaluate_model``` function confirm this conclusion.
+
+Classifier | XGBoost |SVM | Random Forest | Linear Regression | SGD | Boudra et al. (2018)
+:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:
+Precision | 0.660	|0.703	|0.603	|0.680	|0.513| -
+Recall | 0.656	|0.699	|0.603	|0.679	|0.501| -
+Accuracy | 0.656	|0.699	|0.603	|0.679	|0.501| 0.677
+AUC | 0.935	|0.953	|0.914	|0.950| 0.751 | -
+F1 | 0.638	|0.682	|0.580	|0.663	|0.445| -
+
+All measurements are done using *weighted averaging*. 
+
+# Conclusion
+
+In this blog, we showed that Radiomics analysis can be as useful in other areas as in medical domain. As an example, we showed how Radiomic features can be useful for classifyining tree bark images. We used PyRadiomics library to extract Radiomic features from our dataset. Although this library can only work with medical file formats, we showed how we can hack our way through by converting our jpeg images into NIfTI file format. We then trained multiple classifiers on the extracted Radiomic features and compared their performance.
+
+One topic that is important but not covered in this blog is feature selection. Many times, using ony a few features have more predictive capability than using all the extracted features. Although, this was not the case in the example in this blog, it is worth considering such feature selection methods before passing the Radiomic features to your classifier.     
+
+# Reference
+
+Boudra, S., Yahiaoui, I., & Behloul, A. (2018, September). Bark identification using improved statistical radial binary patterns. In 2018 International conference on content-based multimedia indexing (CBMI) (pp. 1-6). IEEE.
 
 
 
