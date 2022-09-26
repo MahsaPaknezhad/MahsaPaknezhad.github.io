@@ -17,7 +17,7 @@ Using Radiomics for Tree Bark Identification
 ------
 Since the term was first coined in $2012$, Radiomics has widely been used for medical image analysis. Radiomics refers to the automatic or semi-automatic extraction of a large of number of quantitative features from medical images. These features have been able to uncover characteristics that can differentiate tumoral tissue from normal tissue and tissue at different stages of cancer.
 
-In this blog, we aim to show that Radiomic features can be useful for analysis of images in many other domains. The example we have provided here shows that radiomic features can be used for tree bark identification. We use **Trunk12**, a publicly available dataset of tree bark images from [here](https://www.vicos.si/resources/trunk12/). The code for this blog is available [here](https://github.com/MahsaPaknezhad/RadiomicsTutorial/blob/master/tree_bark_identification.ipynb). 
+In this blog, we aim to show that Radiomic features can be useful for analysis of images in many other domains. The example we have provided here shows that radiomic features can be used for tree bark identification. We use **Trunk12**, a publicly available dataset of tree bark images from [here](https://www.vicos.si/resources/trunk12/). The code for this blog is available at this [link](https://github.com/MahsaPaknezhad/RadiomicsTutorial/blob/master/tree_bark_identification.ipynb). 
 
 ## Trunk12 Dataset
 
