@@ -429,12 +429,13 @@ if calc_auc: print("AUC:\t %.02f"% stats_svc[8])
 print("F1:\t %.02f"% stats_svc[9])
 ```
 
+# Evaluation Results 
 We tested multiple models including XGBoost, SVM and Random Forest on our dataset and compared our results with the results of the paper (Boudra et al, 2018) for this dataset in the table below. Boudra et al. propose a novel texture descriptor and use this descriptor to guide classification of tree bark images. We also plot the precision-recall curve for each tested model which are shown below:
 
 XGBoost  | SVM | Random Forest
 :-------------:|:-------------:|:-------------:
 <img src="/images/prec_recall_xgboost_crop_s_3000_new_s_256.png" width="160">  | <img src="/images/prec_recall_svm_crop_s_3000_new_s_256.png" width="160">  | <img src="/images/prec_recall_rf_crop_s_3000_new_s_256.png" width="160">
-:-------------:|:-------------:|:-------------:
+
 Logistic Regression | SGD  | Boudra et al. 2018
 :-------------:|:-------------:|:-------------:
 <img src="/images/prec_recall_lr_crop_s_3000_new_s_256.png" width="160"> | <img src="/images/prec_recall_sgd_crop_s_3000_new_s_256.png" width="160"> | <img src="/images/prec_recall_boudra.png" width="160">
