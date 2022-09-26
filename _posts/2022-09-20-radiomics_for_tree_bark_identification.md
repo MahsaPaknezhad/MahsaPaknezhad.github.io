@@ -182,7 +182,7 @@ As can be seen, GLCM is not a quantitative feature per-se but quantitative featu
 
 **Model-based features**: Parameterised models such as autoregressive models or fractal analysis models can be fitted on the region of interest. Once the parameters for these models are estimated, they are used as Radiomics features. 
 
-**Shape-based features**: Shape-based features describe geometric properties of the region of interest. *Compactness, sphericity, density, $2$D or $3$D dimeters, axes and their ratios* are examples of features in this family. 
+**Shape-based features**: Shape-based features describe geometric properties of the region of interest. *Compactness, sphericity, density*, *$2$D or $3$D dimeters*, *axes* and their *ratios* are examples of features in this family. 
 
 Now that we have a better idea what Radiomics features are, we will proceed with extracting these features from our processed tree bark images. 
 
