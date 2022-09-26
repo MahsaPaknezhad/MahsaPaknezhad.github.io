@@ -25,6 +25,7 @@ In this blog, we aim to show that Radiomic features can be useful for analysis o
 
 ```python
 import torchvision
+import seaborn as sns
 
 # Location of the dataset
 data_dir = '../data/trunk12'
@@ -87,7 +88,49 @@ To prepare this dataset for radiomic feature extraction we performed a few prepr
 
 ## Preprocessing
 
-All images went throught the following preprocessing steps. First, the images were converted to grayscale images. Second, squares of size $3000 \times 3000$ pixels were cropped from the center of images. Third, the cropped squares were downsampled to the size $250 \times 250$ pixels. Finally, image contrast was increased so that the intensity values in each image covered the range $[0,255]$. Below, we show the same images that were shown above after going through these preprocessing steps. 
+All images went throught the following preprocessing steps. First, the images were converted to grayscale images. Second, squares of size $3000 \times 3000$ pixels were cropped from the center of images. Third, the cropped squares were downsampled to the size $250 \times 250$ pixels. Finally, image contrast was increased so that the intensity values in each image covered the range $[0,255]$. The preprocessing code is provided below:
+
+```python
+import numpy as np
+import nibabel as nib
+from PIL import Image, ImageOps
+import os
+
+imgs = dataset.imgs
+half_crop_s = int(crop_s/2)
+
+for file, label in imgs:
+
+    # Open an image
+    img = Image.open(file)
+
+    # Convert it to a grayscale image
+    img = ImageOps.grayscale(img)
+
+    # Down-sample the image
+    w2 = int(img.size[0]/2)
+    h2 = int(img.size[1]/2)
+    img = img.crop((w2-half_crop_s, h2-half_crop_s, w2+half_crop_s, h2+half_crop_s))
+    img = img.resize((new_s,new_s))
+
+    # Increase contrast of the image
+    extrema = img.getextrema()
+    arr = np.asarray(img).astype('float')
+    arr = (arr - extrema[0])/ (extrema[1] - extrema[0]) * 255
+
+    # Write the image in nifti format
+    arr = np.expand_dims(arr, axis=2)
+    empty_header = nib.Nifti1Header()
+    affine =  np.eye(4)
+    another_img = nib.Nifti1Image(arr, affine, empty_header)
+    file = file.replace(data_dir, nii_dir)
+    file = file.replace('.JPG', '.nii.gz')
+    path = file.replace(file.split('/')[-1], "")
+    os.makedirs(path, exist_ok = True)
+    nib.save(another_img, file)
+```
+
+Below, we show the same images that were shown above after going through these preprocessing steps. 
 
 <p align="center">
 <img src="/images/image_examples_processed.png" width=850>
