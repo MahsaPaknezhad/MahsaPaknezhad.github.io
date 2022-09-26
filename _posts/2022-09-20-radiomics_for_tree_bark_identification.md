@@ -272,7 +272,7 @@ Later, this excel sheet will be passed as input to PyRadiomics as shown below:
 # Run Pyradiomics on pyradiomics_sample.csv, output to pyradi_features.csv
 !pyradiomics -o ../outputs/pyradi_features_{crop_s}_{new_s}.csv -f csv ../outputs/pyradiomics_samples.csv &> ../outputs/log.txt
 ```
-The output feature values are saved in file pyradi_features_3000_256.csv for each image in the dataset. Now, we can open this file and have a look at it. The first 25 columns in this file contain information about parameters that were used for feature extraction. The rest of the columns contain the extracted features. 
+The output feature values are saved in file pyradi_features_3000_256.csv for each image in the dataset. Now, we can open this file and have a look at it. The first 25 columns in this file contain information about parameters that were used for feature extraction. The rest of the columns contain the extracted features. This is a total of 107 Radiomic features.  
 
 ```python
 import pandas as pd
@@ -292,8 +292,113 @@ pyradi_original.head()
 <img src="/images/excel1.png" width=800>
 </p> 
 
+To train a classifier on these images, we first need to noromalize the feature values to the range $[0,1]$ and remove those feature columns with $nan$ values as shown below:
 
+```python
+# Normalize the feature values
+pyradi_original_norm = (pyradi_original - pyradi_original.min()) / (pyradi_original.max() - pyradi_original.min())
 
+# Add the class labels
+pyradi_original_norm['target'] = dataset.targets
+
+# Drop features will NaN values
+pyradi_original_norm = pyradi_original_norm.dropna(axis=1, how='all')
+```
+
+These steps reduce the number of Radiomic featurs to 90. We then define a function called ```evaluate_mode``` that trains and evaluates an input model on the input dataset using kfold cross validation. This function measures precision, recall, accuracy and F1 score for the input model and dataset. This function is defined below: 
+
+ 
+```python
+from sklearn.metrics import precision_score
+from sklearn.metrics import recall_score
+from sklearn.metrics import roc_curve
+from sklearn.metrics import roc_auc_score
+from sklearn.model_selection import StratifiedKFold
+from sklearn.metrics import accuracy_score
+from sklearn.metrics import f1_score
+from sklearn.pipeline import make_pipeline
+import statistics
+from sklearn.metrics import matthews_corrcoef
+
+# Function to evaluate a classification model using KFold cross validation
+def evaluate_model(model, df, y, calc_auc=False):
+    auc_lr=[]
+    pre_lr=[]
+    rec_lr=[]
+    acc_lr=[]
+    f1_lr=[]
+    auc_lrt=[]
+    pre_lrt=[]
+    rec_lrt=[]
+    acc_lrt=[]
+    f1_lrt=[]
+
+    cv = StratifiedKFold(n_splits=7,  shuffle=False)
+    for train_index, test_index in cv.split(df, y):
+       
+       # Get a certain fold
+        X_train, X_test = df.iloc[train_index], df.iloc[test_index]
+        Y_train, Y_test= y.iloc[train_index], y.iloc[test_index]
+
+        X_train= X_train.values
+        X_test= X_test.values
+        Y_train= Y_train.values
+        Y_test= Y_test.values
+
+	  # train the model
+        clf = make_pipeline(model)
+        clf.fit(X_train, Y_train)
+
+        # Get predictions and measure evaluation metrics for the trained model
+        pred = clf.predict(X_test)
+        pre_l = precision_score(Y_test, pred, average='weighted')
+        rec_l = recall_score(Y_test, pred, average='weighted')
+        acc_l = accuracy_score(Y_test, pred)
+        if calc_auc:
+            probs = clf.predict_proba(X_test)
+            auc_l = roc_auc_score(Y_test, probs, average='weighted', multi_class='ovr')
+
+        f1_l = f1_score(Y_test, pred, average='weighted')
+
+        pred = clf.predict(X_train)
+        pre_lt = precision_score(Y_train, pred, average='weighted')
+        rec_lt = recall_score(Y_train, pred, average='weighted')
+        acc_lt = accuracy_score(Y_train, pred)
+        if calc_auc:
+            probs = clf.predict_proba(X_train)
+            auc_lt = roc_auc_score(Y_train, probs, average='weighted', multi_class='ovr')
+        f1_lt = f1_score(Y_train, pred, average='weighted')
+
+        # Keep the evaluation metric values for each fold
+        if calc_auc: auc_lr.append(auc_l)
+        pre_lr.append(pre_l)
+        rec_lr.append(rec_l)
+        acc_lr.append(acc_l)
+        f1_lr.append(f1_l)
+
+        if calc_auc: auc_lrt.append(auc_lt)
+        pre_lrt.append(pre_lt)
+        rec_lrt.append(rec_lt)
+        acc_lrt.append(acc_lt)
+        f1_lrt.append(f1_lt)
+
+    # Measure the average of the evaluation metrics for all the folds
+    avg_auc_lrt = -1
+    avg_pre_lrt = statistics.mean(pre_lrt)
+    avg_rec_lrt = statistics.mean(rec_lrt)
+    avg_acc_lrt = statistics.mean(acc_lrt)
+    if calc_auc: avg_auc_lrt = statistics.mean(auc_lrt)
+    avg_f1_lrt = statistics.mean(f1_lrt)
+
+    avg_auc_lr = -1
+    avg_pre_lr = statistics.mean(pre_lr)
+    avg_rec_lr = statistics.mean(rec_lr)
+    avg_acc_lr = statistics.mean(acc_lr)
+    if calc_auc: avg_auc_lr = statistics.mean(auc_lr)
+    avg_f1_lr = statistics.mean(f1_lr)
+
+    return avg_pre_lrt, avg_rec_lrt, avg_acc_lrt, avg_auc_lrt, avg_f1_lrt, avg_pre_lr, avg_rec_lr, avg_acc_lr, avg_auc_lr, avg_f1_lr
+```
 
 
 
