@@ -438,7 +438,7 @@ if calc_auc: print("AUC:\t %.02f"% stats_svc[8])
 print("F1:\t %.02f"% stats_svc[9])
 ```
 
-The output of this code prints the measure evaluation metrics for the SVM classifier on tree bark images for training and test data.
+The output of this code prints the measured evaluation metrics for the SVM classifier on tree bark images for training and test data.
 
 # Evaluation Results 
 We tested multiple models including XGBoost, SVM and Random Forest on our dataset and compared our results with the results of the paper (Boudra et al, $2018$) for this dataset in the table below. Boudra et al. propose a novel texture descriptor and use this descriptor to guide classification of tree bark images. We first plot the precision-recall curve for each tested model as shown below:
