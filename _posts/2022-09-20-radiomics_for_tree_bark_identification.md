@@ -17,11 +17,11 @@ Using Radiomics for Tree Bark Identification
 ------
 Since the term was first coined in $2012$, Radiomics has widely been used for medical image analysis. Radiomics refers to the automatic or semi-automatic extraction of a large of number of quantitative features from medical images. These features have been able to uncover characteristics that can differentiate tumoral tissue from normal tissue and tissue at different stages of cancer.
 
-In this blog, we aim to show that Radiomic features can be useful for analysis of images in many other domains. The example we have provided here shows that radiomic features can be used for tree bark identification. We use **Trunk12**, a publicly available dataset of tree bark images from [here](https://www.vicos.si/resources/trunk12/).
+In this blog, we aim to show that Radiomic features can be useful for analysis of images in many other domains. The example we have provided here shows that radiomic features can be used for tree bark identification. We use **Trunk12**, a publicly available dataset of tree bark images from [here](https://www.vicos.si/resources/trunk12/). The code for this blog is available [here](https://github.com/MahsaPaknezhad/RadiomicsTutorial/blob/master/tree_bark_identification.ipynb). 
 
 ## Trunk12 Dataset
 
-**Trunk12** consists of $393$ RGB images of tree barks captured from $12$ types of trees that can be found in Slovenia. For each type of tree, there exists about $30$ jpeg images of resolution $3000 \times 4000$ pixels. The images are taken using the same camera Nikon COOLPIX S3000 and while following the same imaging setup: same distance, light conditions and in an upright position. The following code plots the number of images in each class in this dataset:
+**Trunk12** consists of $393$ RGB images of tree barks captured from $12$ types of trees in Slovenia. For each type of tree, there exists about $30$ jpeg images of resolution $3000 \times 4000$ pixels. The images are taken using the same camera Nikon COOLPIX S3000 and while following the same imaging setup: same distance, light conditions and in an upright position. The following chunk of code plots the number of images in each class in this dataset:
 
 ```python
 import torchvision
@@ -45,7 +45,7 @@ The number of images in each class are shown below.
 <img src="/images/num_of_images_per_class.png" width=800>
 </p> 
 
-The code below shows a few examples of images in this dataset together with their tree type. 
+We also show a few examples of images in this dataset together with their tree type using the code below. 
 
 ```python
 import torchvision.transforms as transforms
@@ -78,17 +78,17 @@ for i in range(n):
 plt.tight_layout()
 plt.show()
 ```
-The output of this code is shown in the following figure. 
+The output of this code is shown in the following figure: 
 
 <p align="center">
 <img src="/images/image_examples_original.png" width=850>
 </p> 
 
-To prepare this dataset for radiomic feature extraction we performed a few preprocessing steps on the images. These steps are explained in the following section. 
+To prepare this dataset for radiomic feature extraction we perform a few preprocessing steps on the images. These steps are explained in the following section. 
 
 ## Preprocessing
 
-All images went throught the following preprocessing steps. First, the images were converted to grayscale images. Second, squares of size $3000 \times 3000$ pixels were cropped from the center of images. Third, the cropped squares were downsampled to the size $250 \times 250$ pixels. Finally, image contrast was increased so that the intensity values in each image covered the range $[0,255]$. The preprocessing code is provided below:
+All images go throught the following preprocessing steps. First, the images are converted to grayscale. Second, squares of size $3000 \times 3000$ pixels are cropped from the center of images. Third, the cropped squares are downsampled to the size $250 \times 250$ pixels. Finally, image contrast is increased so that the intensity values in each image covered the range $[0,255]$. The preprocessing code is provided below:
 
 ```python
 import numpy as np
@@ -96,6 +96,8 @@ import nibabel as nib
 from PIL import Image, ImageOps
 import os
 
+crops_s = 3000
+new_s = 256
 imgs = dataset.imgs
 half_crop_s = int(crop_s/2)
 
@@ -136,7 +138,7 @@ Below, we show the same images that were shown above after going through these p
 <img src="/images/image_examples_processed.png" width=850>
 </p> 
 
-In the next step, we will extract Radiomic features from the processed images. But first we will provide a brief introduction on Radiomic features. 
+In the next step, we extract Radiomic features from the processed images. But first we provide a brief introduction on Radiomic features. 
 
 ## What are Radiomic Features?
 Radiomics is quantifying and extracting many imaging patterns including texture and shape features from images using automatic and semi-automatic algorithms. ​These features, usually invisible to the human-eye, can be extracted non-subjectively and used to train and validate models for prediction and early stratification of patients. Radiomic features are categorized into five group of features.
@@ -199,20 +201,20 @@ data_dir = '../data/trunk12'
 nii_dir = f'../data/trunk12_nii'
 
 # Open a jpeg image and write it in NIfTI format
-img = Image.open(jpg_file)
+img = Image.open(jpg_filename)
 arr = np.asarray(img).astype('float')
 arr = np.expand_dims(arr, axis=2)
 empty_header = nib.Nifti1Header()
 affine =  np.eye(4)
 nifti_img = nib.Nifti1Image(arr, affine, empty_header)
-nifti_filename = file.replace(data_dir, nii_dir)
+nifti_filename = jpg_filename.replace(data_dir, nii_dir)
 nifti_file = nifti_filename.replace('.JPG', '.nii.gz')
-path = nifti_file.replace(nifti_filename.split('/')[-1], "")
+path = nifti_filename.replace(nifti_filename.split('/')[-1], "")
 os.makedirs(path, exist_ok = True)
 nib.save(nifti_img, nifti_filename)
 ```
 
-As can be seen, we have defined an empty header with an identity matrix for the orientation of the image. The same header is defined for all jpeg images in our dataset. As a result, the extracted Radiomic features from these images are comparable. PyRadiomics also requires a mask file that specifies the region of interest to extract features from in the input image. For our case, we plan to extract features from the entire image. Therefore, we generate a mask file that specifies the whole image as shown below:
+As can be seen, we have defined an empty header with an identity matrix for the affine transform matrix. The affine transform matrix gives the relationship between voxel coordinates and world coordinates. The same header and affine transform matrix is defined for all jpeg images in our dataset. As a result, the extracted Radiomic features from these images are comparable. PyRadiomics also requires a mask file that specifies the region of interest to extract features from in the input image. For our case, we plan to extract features from the entire image. Therefore, we generate a mask file that covers the whole image as shown below:
 
 ```python
 import nibabel as nib
@@ -231,16 +233,16 @@ mask_img = nib.Nifti1Image(mask, affine, empty_header)
 nib.save(mask_img, mask_filename)
 ```
 
-Above, we specify the label for the region of interest with 255. Now, we can extract Radiomic features from the generated NIfTI images using the mask file and the label as shown in the following:  
+Above, we specified the label for the region of interest with 255. Now, we can extract Radiomic features from the generated NIfTI images using the mask file and the label as shown in the following:  
 
 ```python
 import radiomics
 from radiomics import featureextractor 
 
 # Instantiate the radiomics feature extractor
-nifti_filename = img_label[0][0].replace(data_dir, nii_dir).replace('.JPG', '.nii.gz')
+nifti_filename = dataset.imgs[0][0].replace(data_dir, nii_dir).replace('.JPG', '.nii.gz')
 extractor = featureextractor.RadiomicsFeatureExtractor(force2D=True)
-output = extractor.execute(nifti_file), mask_filename, label=255)
+output = extractor.execute(nifti_filename), mask_filename, label=255)
 ```
 Figure below shows the extracted features by PyRadiomics and their values from an image in our dataset: 
 
@@ -248,7 +250,7 @@ Figure below shows the extracted features by PyRadiomics and their values from a
 <img src="/images/example_radiomics.png" width=800>
 </p> 
 
-To extract radiomic features from all images in our dataset, we can generate an excel sheet that contains the location of all the NIfTI images in our dataset, their corresponding mask and label and pass this excel sheet to PyRadiomics. The same mask file and label is used for all images. Below we show how the excel sheet is generated:
+To extract radiomic features from all images in our dataset, we can generate an excel sheet that contains the location of all the NIfTI images in our dataset together with the mask file and label and pass this excel sheet to PyRadiomics for feature extraction. The same mask file and label is used for all images. Below we show how the excel sheet is generated:
 
 ```python
 
@@ -259,12 +261,10 @@ import pandas as pd
 # Write a csv file that contains the location of each NIfTI image in the train set, its mask file and label 
 pyradiomics_header = ('Image','Mask', 'Label')
 m_arr = [mask_filename] * len(dataset.imgs)
-img_label_pair = dataset.imgs
-rows = [(il[0].replace(data_dir, nii_dir).replace('.JPG', '.nii.gz'), m, 255) for m, il in zip(m_arr, img_label_pair)]
+rows = [(i[0].replace(data_dir, nii_dir).replace('.JPG', '.nii.gz'), m, 255) for m, i in zip(m_arr, dataset.imgs)]
 rows.insert(0, pyradiomics_header)
 arr = np.asarray(rows)
 np.savetxt('../outputs/pyradiomics_samples.csv', arr, fmt="%s", delimiter=",")
-ds = pd.read_csv('../outputs/pyradiomics_samples.csv')
 ``` 
 Later, this excel sheet will be passed as input to PyRadiomics as shown below:
 
@@ -273,9 +273,11 @@ Later, this excel sheet will be passed as input to PyRadiomics as shown below:
 !pyradiomics -o ../outputs/pyradi_features_{crop_s}_{new_s}.csv -f csv ../outputs/pyradiomics_samples.csv &> ../outputs/log.txt
 ```
 
+This command will generate another excel sheet named pyradi_features_3000_256.csv which contains at each row the Radiomic feature values for each image in the pyradiomics_samples.csv file. 
+
 # Radiomic Feature Processing
 
-The output feature values are saved in the file pyradi_features_3000_256.csv for each image in the dataset. Now, we can open this file and have a look at it. The first 25 columns in this file contain information about parameters that were used for feature extraction. The rest of the columns contain the extracted features. This is a total of 107 Radiomic features.  
+The output feature values are saved in the file pyradi_features_3000_256.csv for each image in the dataset. Now, we can open this file and have a look at it. The first 25 columns in this file contain information about parameters that were used for feature extraction. The rest of the columns contain the extracted features. This is a total of 107 Radiomic features for our dataset.  
 
 ```python
 import pandas as pd
@@ -295,7 +297,7 @@ pyradi_original.head()
 <img src="/images/excel1.png" width=800>
 </p> 
 
-To train a classifier on these images, we first need to noromalize the feature values to the range $[0,1]$ and remove those feature columns with $nan$ values as shown below:
+To train a classifier on the Radiomic features, we first need to noromalize the feature values to the range $[0,1]$ and remove those feature columns with ```nan``` values using the code below. Also, we add the tree types as the class labels to the excel sheet.
 
 ```python
 # Normalize the feature values
@@ -308,11 +310,11 @@ pyradi_original_norm['target'] = dataset.targets
 pyradi_original_norm = pyradi_original_norm.dropna(axis=1, how='all')
 ```
 
-These steps reduce the number of Radiomic featurs to 90. 
+Removing features with nan values after normalization reduces the number of Radiomic features to 90. 
 
 # Training Classifiers 
 
-We then define a function called ```evaluate_mode``` that trains and evaluates an input model on the input dataset using kfold cross validation. This function measures precision, recall, accuracy and F1 score for the input model and dataset. This function is defined below: 
+We then define a function called ```evaluate_mode``` that trains and evaluates an input model on the input dataset using k-fold cross validation. This function measures precision, recall, accuracy and F1 score as the evaluation metrics for the input model and dataset. This function is defined below: 
 
  
 ```python
@@ -436,8 +438,10 @@ if calc_auc: print("AUC:\t %.02f"% stats_svc[8])
 print("F1:\t %.02f"% stats_svc[9])
 ```
 
+The output of this code prints the measure evaluation metrics for the SVM classifier on tree bark images for training and test data.
+
 # Evaluation Results 
-We tested multiple models including XGBoost, SVM and Random Forest on our dataset and compared our results with the results of the paper (Boudra et al, 2018) for this dataset in the table below. Boudra et al. propose a novel texture descriptor and use this descriptor to guide classification of tree bark images. We also plot the precision-recall curve for each tested model which are shown below:
+We tested multiple models including XGBoost, SVM and Random Forest on our dataset and compared our results with the results of the paper (Boudra et al, 2018) for this dataset in the table below. Boudra et al. propose a novel texture descriptor and use this descriptor to guide classification of tree bark images. We first plot the precision-recall curve for each tested model as shown below:
 
 XGBoost  | SVM | Random Forest
 :-------------:|:-------------:|:-------------:
@@ -447,7 +451,7 @@ Logistic Regression | SGD  | Boudra et al. 2018
 :-------------:|:-------------:|:-------------:
 <img src="/images/prec_recall_lr_crop_s_3000_new_s_256.png" width="160"> | <img src="/images/prec_recall_sgd_crop_s_3000_new_s_256.png" width="160"> | <img src="/images/prec_recall_boudra.png" width="160">
 
-*AP* refers to average precision. The measurements are done using *micro averaging*. Our results show that the SVM classifier outperforms all the other methods. Other evaluation metrics measured by the ```evaluate_model``` function confirm this conclusion.
+*AP* refers to average precision. The measurements are done using *micro averaging*. The precision-recall curves show that the SVM classifier outperforms all the other methods. Other evaluation metrics measured by the ```evaluate_model``` function also confirm this conclusion.
 
 Classifier | XGBoost |SVM | Random Forest | Linear Regression | SGD | Boudra et al. (2018)
 :-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:
@@ -461,9 +465,9 @@ All measurements are done using *weighted averaging*.
 
 # Conclusion
 
-In this blog, we showed that Radiomics analysis can be as useful in other areas as in medical domain. As an example, we showed how Radiomic features can be useful for classifyining tree bark images. We used PyRadiomics library to extract Radiomic features from our dataset. Although this library can only work with medical file formats, we showed how we can hack our way through by converting our jpeg images into NIfTI file format. We then trained multiple classifiers on the extracted Radiomic features and compared their performance.
+In this blog, we showed that Radiomics analysis can be as useful in other areas as in medical domain. As an example, we showed how Radiomic features can be useful for classifying tree bark images. We used PyRadiomics library to extract Radiomic features from Trunk12 dataset. Although this library can only work with medical image file formats, we showed how we can hack our way through by converting our jpeg images to NIfTI file format. We then trained multiple classifiers on the extracted Radiomic features and compared their performance.
 
-One topic that is important but not covered in this blog is feature selection. Many times, using ony a few features have more predictive capability than using all the extracted features. Although, this was not the case in the example in this blog, it is worth considering such feature selection methods before passing the Radiomic features to your classifier.     
+One topic that is important but not covered in this blog is feature selection. Many times, using ony a few carefully selected features have more predictive capability than using all the extracted features. Although, using all the Radiomic feature resulted in the highest classification performance in the example in this blog, it is worth considering different feature selection methods instead of passing all the Radiomic features to your classifier.     
 
 # Reference
 
