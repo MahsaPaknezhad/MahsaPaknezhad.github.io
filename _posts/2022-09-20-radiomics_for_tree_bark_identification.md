@@ -182,12 +182,12 @@ As can be seen, GLCM is not a quantitative feature per-se but quantitative featu
 
 **Model-based features**: Parameterised models such as autoregressive models or fractal analysis models can be fitted on the region of interest. Once the parameters for these models are estimated, they are used as Radiomics features. 
 
-**Shape-based features**: Shape-based features describe geometric properties of the region of interest. *Compactness, sphericity, density, 2D or 3D dimeters, axes and their ratios* are examples of features in this family. 
+**Shape-based features**: Shape-based features describe geometric properties of the region of interest. *Compactness, sphericity, density, $2$D or $3$D dimeters, axes and their ratios* are examples of features in this family. 
 
 Now that we have a better idea what Radiomics features are, we will proceed with extracting these features from our processed tree bark images. 
 
 ## Radiomic Feature Extraction
-To extract Radiomics features from our dataset of tree bark images we take advantage of the [PyRadiomics](https://pyradiomics.readthedocs.io/en/latest/) library. This library can extract up to 120 radiomic features (both 2D and 3D). One limitation of PyRadiomics is that it is developed for medical images so it can only extract features from medical images with file formats such as NIfTI, NRRD, MHA, etc. These file formats usually have a header which contains information about the patient, acquisition parameters and orientation in space so that the stored image can be unambigiuosly interpreted. To address this problem, we converted our jpeg images to NIfTI images using the following hack: 
+To extract Radiomics features from our dataset of tree bark images we take advantage of the [PyRadiomics](https://pyradiomics.readthedocs.io/en/latest/) library. This library can extract up to $120$ radiomic features (both $2$D and $3$D). One limitation of PyRadiomics is that it is developed for medical images so it can only extract features from medical images with file formats such as NIfTI, NRRD, MHA, etc. These file formats usually have a header which contains information about the patient, acquisition parameters and orientation in space so that the stored image can be unambigiuosly interpreted. To address this problem, we converted our jpeg images to NIfTI images using the following hack: 
 
 ```python
 import nibabel as nib
@@ -233,7 +233,7 @@ mask_img = nib.Nifti1Image(mask, affine, empty_header)
 nib.save(mask_img, mask_filename)
 ```
 
-Above, we specified the label for the region of interest with 255. Now, we can extract Radiomic features from the generated NIfTI images using the mask file and the label as shown in the following:  
+Above, we specified the label for the region of interest with $255$. Now, we can extract Radiomic features from the generated NIfTI images using the mask file and the label as shown in the following:  
 
 ```python
 import radiomics
@@ -273,11 +273,11 @@ Later, this excel sheet will be passed as input to PyRadiomics as shown below:
 !pyradiomics -o ../outputs/pyradi_features_{crop_s}_{new_s}.csv -f csv ../outputs/pyradiomics_samples.csv &> ../outputs/log.txt
 ```
 
-This command will generate another excel sheet named pyradi_features_3000_256.csv which contains at each row the Radiomic feature values for each image in the pyradiomics_samples.csv file. 
+This command will generate another excel sheet named pyradi_features_$3000$_$256$.csv which contains at each row the Radiomic feature values for each image in the pyradiomics_samples.csv file. 
 
 # Radiomic Feature Processing
 
-The output feature values are saved in the file pyradi_features_3000_256.csv for each image in the dataset. Now, we can open this file and have a look at it. The first 25 columns in this file contain information about parameters that were used for feature extraction. The rest of the columns contain the extracted features. This is a total of 107 Radiomic features for our dataset.  
+The output feature values are saved in the file pyradi_features_$3000$_$256$.csv for each image in the dataset. Now, we can open this file and have a look at it. The first 25 columns in this file contain information about parameters that were used for feature extraction. The rest of the columns contain the extracted features. This is a total of $107$ Radiomic features for our dataset.  
 
 ```python
 import pandas as pd
@@ -310,11 +310,11 @@ pyradi_original_norm['target'] = dataset.targets
 pyradi_original_norm = pyradi_original_norm.dropna(axis=1, how='all')
 ```
 
-Removing features with nan values after normalization reduces the number of Radiomic features to 90. 
+Removing features with nan values after normalization reduces the number of Radiomic features to $90$. 
 
 # Training Classifiers 
 
-We then define a function called ```evaluate_mode``` that trains and evaluates an input model on the input dataset using k-fold cross validation. This function measures precision, recall, accuracy and F1 score as the evaluation metrics for the input model and dataset. This function is defined below: 
+We then define a function called ```evaluate_mode``` that trains and evaluates an input model on the input dataset using k-fold cross validation. This function measures precision, recall, accuracy and F$1$ score as the evaluation metrics for the input model and dataset. This function is defined below: 
 
  
 ```python
@@ -441,7 +441,7 @@ print("F1:\t %.02f"% stats_svc[9])
 The output of this code prints the measure evaluation metrics for the SVM classifier on tree bark images for training and test data.
 
 # Evaluation Results 
-We tested multiple models including XGBoost, SVM and Random Forest on our dataset and compared our results with the results of the paper (Boudra et al, 2018) for this dataset in the table below. Boudra et al. propose a novel texture descriptor and use this descriptor to guide classification of tree bark images. We first plot the precision-recall curve for each tested model as shown below:
+We tested multiple models including XGBoost, SVM and Random Forest on our dataset and compared our results with the results of the paper (Boudra et al, $2018$) for this dataset in the table below. Boudra et al. propose a novel texture descriptor and use this descriptor to guide classification of tree bark images. We first plot the precision-recall curve for each tested model as shown below:
 
 XGBoost  | SVM | Random Forest
 :-------------:|:-------------:|:-------------:
