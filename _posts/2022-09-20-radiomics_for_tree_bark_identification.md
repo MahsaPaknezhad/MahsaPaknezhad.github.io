@@ -205,11 +205,11 @@ arr = np.expand_dims(arr, axis=2)
 empty_header = nib.Nifti1Header()
 affine =  np.eye(4)
 nifti_img = nib.Nifti1Image(arr, affine, empty_header)
-nifti_file = file.replace(data_dir, nii_dir)
-nifti_file = nifti_file.replace('.JPG', '.nii.gz')
-path = nifti_file.replace(nifti_file.split('/')[-1], "")
+nifti_filename = file.replace(data_dir, nii_dir)
+nifti_file = nifti_filename.replace('.JPG', '.nii.gz')
+path = nifti_file.replace(nifti_filename.split('/')[-1], "")
 os.makedirs(path, exist_ok = True)
-nib.save(nifti_img, nifti_file)
+nib.save(nifti_img, nifti_filename)
 ```
 
 As can be seen, we have defined an empty header with an identity matrix for the orientation of the image. The same header is defined for all jpeg images in our dataset. As a result, the extracted Radiomic features from these images are comparable. PyRadiomics also requires a mask file that specifies the region of interest to extract features from in the input image. For our case, we plan to extract features from the entire image. Therefore, we generate a mask file that specifies the whole image as shown below:
@@ -223,12 +223,12 @@ import numpy as np
 mask = np.ones(img.shape) *255
 mask[:1, :1, :] = 0
 mask = mask.astype(np.uint8)
-mask_name = "../outputs/mask.nii.gz"
+mask_filename = "../outputs/mask.nii.gz"
 
 empty_header = nib.Nifti1Header()
 affine = np.eye(4)
 mask_img = nib.Nifti1Image(mask, affine, empty_header)
-nib.save(mask_img, mask_name)
+nib.save(mask_img, mask_filename)
 ```
 
 Above, we specify the label for the region of interest with 255. Now, we can extract Radiomic features from the generated NIfTI images using the mask file and the label as shown in the following:  
@@ -238,8 +238,9 @@ import radiomics
 from radiomics import featureextractor 
 
 # Instantiate the radiomics feature extractor
+nifti_filename = img_label[0][0].replace(data_dir, nii_dir).replace('.JPG', '.nii.gz')
 extractor = featureextractor.RadiomicsFeatureExtractor(force2D=True)
-output = extractor.execute(nifti_file), mask_file, label=255)
+output = extractor.execute(nifti_file), mask_filename, label=255)
 ```
 Figure below shows the extracted features by PyRadiomics and their values from an image in our dataset: 
 
@@ -257,15 +258,41 @@ import pandas as pd
 
 # Write a csv file that contains the location of each NIfTI image in the train set, its mask file and label 
 pyradiomics_header = ('Image','Mask', 'Label')
-m_arr = [mask_name] * len(dataset.imgs)
-img_label = dataset.imgs
-rows = [(il[0].replace(data_dir, nii_dir).replace('.JPG', '.nii.gz'), m, 255) for m, il in zip(m_arr, img_label)]
+m_arr = [mask_filename] * len(dataset.imgs)
+img_label_pair = dataset.imgs
+rows = [(il[0].replace(data_dir, nii_dir).replace('.JPG', '.nii.gz'), m, 255) for m, il in zip(m_arr, img_label_pair)]
 rows.insert(0, pyradiomics_header)
 arr = np.asarray(rows)
-np.savetx
-t('../outputs/pyradiomics_samples.csv', arr, fmt="%s", delimiter=",")
+np.savetxt('../outputs/pyradiomics_samples.csv', arr, fmt="%s", delimiter=",")
 ds = pd.read_csv('../outputs/pyradiomics_samples.csv')
 ``` 
+Later, this excel sheet will be passed as input to PyRadiomics as shown below:
+
+```python
+# Run Pyradiomics on pyradiomics_sample.csv, output to pyradi_features.csv
+!pyradiomics -o ../outputs/pyradi_features_{crop_s}_{new_s}.csv -f csv ../outputs/pyradiomics_samples.csv &> ../outputs/log.txt
+```
+The output feature values are saved in file pyradi_features_3000_256.csv for each image in the dataset. Now, we can open this file and have a look at it. The first 25 columns in this file contain information about parameters that were used for feature extraction. The rest of the columns contain the extracted features. 
+
+```python
+import pandas as pd
+
+# Declare csv filename from Pyradiomics (zscore scaled and merged)
+fname = f'../outputs/pyradi_features_{crop_s}_{new_s}.csv'
+
+# Load data
+pyradi_data = pd.read_csv(fname)
+
+# Show the radiomic feature columns
+pyradi_original = pyradi_data.iloc[:,25:]
+pyradi_original.head()
+```
+
+<p align="center">
+<img src="/images/excel1.png" width=800>
+</p> 
+
+
 
 
 
