@@ -314,7 +314,7 @@ Removing features with nan values after normalization reduces the number of Radi
 
 # Training Classifiers 
 
-We then define a function called ```evaluate_mode``` that trains and evaluates an input model on the input dataset using k-fold cross validation. This function measures precision, recall, accuracy and F$1$ score as the evaluation metrics for the input model and dataset. This function is defined below: 
+We then define a function called ```evaluate_model``` that trains and evaluates an input model on the input dataset using k-fold cross validation. This function measures precision, recall, accuracy and F$1$ score as the evaluation metrics for the input model and dataset. This function is defined below: 
 
  
 ```python
