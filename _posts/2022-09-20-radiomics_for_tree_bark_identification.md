@@ -280,7 +280,7 @@ pyradi_original.head()
 <img src="/images/excel1.png" width=800>
 </p> 
 
-As shown above, the shape feature values have the same values. This is because the region of interest is the same for all images. To train a classifier on the Radiomic features, we first need to noromalize the feature values to the range $[0,1]$ and remove those feature columns with ```nan``` values using the code below. Also, we add the tree types as the class labels to the excel sheet.
+As shown above, the shape feature values have the same values. This is because the region of interest is the same for all images. To train a classifier on the Radiomic features, we first need to normalize the feature values to the range $[0,1]$ and remove those feature columns with ```nan``` values using the code below. Also, we add the tree types as the class labels to the excel sheet.
 
 ```python
 # Normalize the feature values
