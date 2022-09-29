@@ -11,7 +11,7 @@ redirect_from:
 
 Work Experience
 ======
-** 2022-Present Machine Learning Engineerm DataRock Pty Ltd, Melbourne, Australia**
+**2022-Present Machine Learning Engineerm DataRock Pty Ltd, Melbourne, Australia**
 * Developed advanced computer vision techniques such as self-supervised learning for multi-band electromagnetic images.
 * Gained considerable experience in working with Amazon Web Service (AWS)
 * Gained great familiarity with geoscience python libraries such as Geopandas, Rasterio, Folium, GDAL, and more to come. 
