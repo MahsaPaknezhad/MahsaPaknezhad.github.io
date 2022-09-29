@@ -8,7 +8,17 @@ redirect_from:
   - /about.html
 ---
 
-I am a senior research fellow in developing and applying ML and AI algorithms to medical image analysis. In this GitHub repository, I have put some of my code for different projects I have been working on. I have provided a brief explanation of the purpose of the most recent projects below. 
+I am a Machine Learning enginner. I develop and apply ML and AI algorithms to images in different domains. In this GitHub repository, I have put some of my code for different projects I have been working on. I have provided a brief explanation of the purpose of some of the most recent projects below. 
+
+
+## Using Radiomics for Tree Bark Identification
+Since the term radiomics was first coined in 2012, it has widely been used for medical image analysis. Radiomics is a method that automatically extracts a large of number of different features from medical images. These features have been able to uncover characteristics that can differentiate tumoral tissue from normal tissue and tissue at different stages of cancer.
+
+In this project, we aim to show that radiomic features can be useful for analysis of images in other domains as well. As a example, we show that radiomic features can be used for tree bark identification. We use a public dataset of tree bark images which can be found [here](https://www.vicos.si/resources/trunk12/). All the code is provided in the [RadiomicsTutorial](https://github.com/MahsaPaknezhad/RadiomicsTutorial) repository.
+
+<p align="center">
+<img src="/images/example_radiomics.png" width=700>
+</p>
 
 ## Parallel Learning for Robust and Transparent AI
 In this project, we develop an algorithm for training a DL model on multiple tasks in a continual learning scenario. In contrast to the proposed algorithms where the DL model is trained on tasks sequentially, our proposed algorithm trains the DL model on the existing tasks in parallel. The parallel approach allows a DL model to learn generalizable representations and eliminates the problem of catastrophic forgetting which is common in sequential learning approaches. The diagram of the proposed algorithm is shown below.

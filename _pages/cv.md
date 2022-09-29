@@ -11,7 +11,11 @@ redirect_from:
 
 Work Experience
 ======
-**2020-Present	Senior Postdoctoral Research Fellow, Bioinformatics Institute (BII), ASTAR, Singapore**
+** 2022-Present Machine Learning Engineerm DataRock Pty Ltd, Melbourne, Australia
+* Developed advanced computer vision techniques such as self-supervised learning for multi-band electromagnetic images.
+* Gained considerable experience in working with Amazon Web Service (AWS)
+* Gained great familiarity with geoscience python libraries such as Geopandas, Rasterio, Folium, GDAL, and more to come. 
+**2020-2022	Senior Postdoctoral Research Fellow, Bioinformatics Institute (BII), ASTAR, Singapore**
 * Led multiple DL projects and have two papers one accepted at Neurocomputing journal and one under review
 * Wrote multiple grant proposals and received the AI3 HTPO grant which will sponsor our project for 2 years
 * Initiated and led a project with the Baker Heart and Diabetes Institute, Australia
