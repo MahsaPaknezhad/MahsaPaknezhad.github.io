@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-I am a machine learning enginner. I develop and apply ML and AI algorithms to images in different domains. In this GitHub repository, I have put some of my code for different projects I have been working on. I have provided a brief explanation of the purpose of some of the most recent projects below. 
+My name is Mahsa ![](/audios/name.mp3) Paknezhad ![](/audios/surname.mp3). I am a machine learning enginner. I develop and apply ML and AI algorithms to images in different domains. In this GitHub repository, I have put some of my code for different projects I have been working on. I have provided a brief explanation of the purpose of some of the most recent projects below. 
 
 
 ## Using Radiomics for Tree Bark Identification
