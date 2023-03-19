@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-I am a machine learning enginner. I develop and apply ML and AI algorithms to images in different domains. In this GitHub repository, I have put some of my code for different projects I have been working on. I have provided a brief explanation of the purpose of some of the most recent projects below. 
+I am a machine learning engineer at Datarock where we provide AI solutions for the mining industry. I currently develop and apply ML and AI algorithms to both structured geological data such as geophysical and geochemical data and unstructured geological data such as seismic and geophysical images. In this GitHub repository, I have put some of my code for different projects I have been working on. I have provided a brief explanation of the purpose of some of the most recent projects below. 
 
 
 ## Using Radiomics for Tree Bark Identification
