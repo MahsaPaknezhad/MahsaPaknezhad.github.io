@@ -8,12 +8,11 @@ redirect_from:
   - /about.html
 ---
 
-I am a Senior Machine Learning Engineer at Datarock where we provide AI solutions for the mining industry. I develop and apply ML and AI algorithms to both structured geological data such as geophysical and geochemical data and unstructured geological data such as seismic and geophysical images. 
+As a Senior Machine Learning Engineer at Datarock, I pioneer the development of advanced AI solutions tailored for the mining sector. My role involves leveraging ML and AI algorithms to analyze both structured geological data (such as geophysical and geochemical data) and unstructured data (including seismic and geophysical images). 
 
-At Datarock, I have pioneered the development of cutting-edge AI and Computer Vision methodologies, including state-of-the-art techniques like self-supervised learning, open-set recognition, graph neural networks, inpainting using latent diffusion models and image registration, tailored specifically for geological datasets. I have also cultivated substantial expertise in harnessing the power of Amazon Web Services (AWS), delving deep into the intricacies of this cloud service to optimize and streamline various computational processes and data management tasks. 
+At Datarock, I've been at the forefront of spearheading cutting-edge AI methodologies, encompassing self-supervised learning, open-set recognition, graph neural networks, and innovative techniques like inpainting using latent diffusion models and image registration, all finely tuned for geological datasets. My expertise extends to optimizing computational processes and data management tasks through Amazon Web Services (AWS), where I've delved deep into AWS intricacies for enhanced efficiency. 
 
-In this GitHub repository, I have put some of my code for different projects I have been working on my free time or while doing research. I have provided a brief explanation of the purpose of some of the most recent projects below. 
-
+You can explore a selection of my projects on GitHub, each accompanied by a concise overview of its purpose and significance.
 
 ## Using Radiomics for Tree Bark Identification
 Since the term radiomics was first coined in 2012, it has widely been used for medical image analysis. Radiomics is a method that automatically extracts a large of number of different features from medical images. These features have been able to uncover characteristics that can differentiate tumoral tissue from normal tissue and tissue at different stages of cancer.
