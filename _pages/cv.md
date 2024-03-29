@@ -12,8 +12,9 @@ redirect_from:
 Work Experience
 ======
 **2022-Present Senior Machine Learning Engineer, DataRock Pty Ltd, Melbourne, Australia**
-* Developed inpainting model for geophysical imagery, and deployed image registration, graph neural networks, open-set recognition algorithms for a wide range of projects
-* Developed advanced computer vision techniques such as self-supervised learning for multi-band electromagnetic images.
+* Developed an inpainting model for geophysical imagery.
+* Developed a self-supervised learning for multi-band electromagnetic images.
+* Developed image registration, graph neural networks and open-set recognition algorithms for a wide range of projects.
 * Gained considerable experience in working with Amazon Web Service (AWS)
 * Gained great familiarity with geoscience python libraries such as Geopandas, Rasterio, Folium, GDAL, and more to come. 
 
