@@ -8,7 +8,9 @@ redirect_from:
   - /about.html
 ---
 
-I am a machine learning engineer at Datarock where we provide AI solutions for the mining industry. I currently develop and apply ML and AI algorithms to both structured geological data such as geophysical and geochemical data and unstructured geological data such as seismic and geophysical images. In this GitHub repository, I have put some of my code for different projects I have been working on. I have provided a brief explanation of the purpose of some of the most recent projects below. 
+I am a Senior Machine Learning Engineer at Datarock where we provide AI solutions for the mining industry. I develop and apply ML and AI algorithms to both structured geological data such as geophysical and geochemical data and unstructured geological data such as seismic and geophysical images. I have pioneered the development of cutting-edge AI and Computer Vision methodologies, including state-of-the-art techniques like self-supervised learning, open-set recognition, graph neural networks, inpainting using latent diffusion models and image registration, tailored specifically for geological datasets. I have also cultivated substantial expertise in harnessing the power of Amazon Web Services (AWS), delving deep into the intricacies of this cloud service to optimize and streamline various computational processes and data management tasks. 
+
+In this GitHub repository, I have put some of my code for different projects I have been working on my free time or while doing research. I have provided a brief explanation of the purpose of some of the most recent projects below. 
 
 
 ## Using Radiomics for Tree Bark Identification
