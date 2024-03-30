@@ -11,7 +11,7 @@ redirect_from:
 
 Work Experience
 ======
-**2022-Present Senior Machine Learning Engineer, DataRock Pty Ltd, Melbourne, Australia**
+**2022-Present Senior Machine Learning Engineer, Datarock Pty Ltd, Melbourne, Australia**
 * Developed an inpainting model for geophysical imagery.
 * Developed a self-supervised learning for multi-band electromagnetic images.
 * Developed image registration, graph neural networks and open-set recognition algorithms for a wide range of projects.
