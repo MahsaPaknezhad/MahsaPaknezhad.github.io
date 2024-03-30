@@ -14,6 +14,15 @@ At Datarock, I've been at the forefront of spearheading cutting-edge AI methodol
 
 You can explore a selection of my projects on GitHub, each accompanied by a concise overview of its purpose and significance.
 
+## Self-Supervised Learning on the Coasts of Antarctica: A Fun Project
+
+In this fun project, we employed self-supervised learning to train a model on the data of the coasts of Antarctica. Our objective was to identify regions along the Antarctic coasts with similar geological characteristics. The model training focused solely on the coastal areas. Upon training the model on the coasts of Antarctica, features were extracted for each tile and passed to a clustering algorithm. The clustering process assigned each tile to a cluster, with different colors representing distinct clusters. These clusters were then projected back onto the map, revealing regions with similar geological characteristics.
+
+<p align="center">
+<img src="/images/Fig2.png" width=800>
+</p> 
+
+
 ## Using Radiomics for Tree Bark Identification
 Since the term radiomics was first coined in 2012, it has widely been used for medical image analysis. Radiomics is a method that automatically extracts a large of number of different features from medical images. These features have been able to uncover characteristics that can differentiate tumoral tissue from normal tissue and tissue at different stages of cancer.
 
