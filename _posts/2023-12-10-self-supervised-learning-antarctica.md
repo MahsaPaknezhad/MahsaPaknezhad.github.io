@@ -1,5 +1,5 @@
 ---
-title: 'Self-supervised Learning on the Coasts of Antarctica: A Fun Project'
+title: 'Self-Supervised Learning on the Coasts of Antarctica: A Fun Project'
 date: 2023-12-10
 permalink: /posts/2023/12/self-supervised-learning-antarctica/
 header-includes:
