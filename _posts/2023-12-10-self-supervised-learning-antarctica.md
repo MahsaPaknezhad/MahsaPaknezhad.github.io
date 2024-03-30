@@ -15,7 +15,7 @@ tags:
 
 In the world of mining exploration and geological analysis, vast amounts of data often arrive devoid of labels, posing a challenge for conventional supervised learning methods. However, within this challenge lies an exciting opportunity - the utilization of unsupervised learning techniques to unveil hidden insights nestled within geological datasets. Among these methods, self-supervised learning emerges as a potent tool, reshaping how we extract valuable information and pinpoint potential mining sites.
 
-The Predicament of Unlabeled Geological Data
+## The Predicament of Unlabeled Geological Data
 
 Geological data, encompassing everything from seismic surveys to geochemical assays, frequently lacks explicit labels. This absence makes traditional supervised learning methods impractical, as they rely heavily on annotated data for model training. Consequently, unsupervised learning techniques have become indispensable in mining projects, offering a pathway to glean insights from raw, unstructured data.
 
