@@ -23,7 +23,7 @@ This work is accepted for oral presentation at the *Artificial Intelligence for 
 
 
 <p align="center">
-<img src="/images/Inpainting_diagram.jpg" width=800>
+<img src="/images/Inpainting_diagram3.jpg" width=800>
 </p>
 
 
