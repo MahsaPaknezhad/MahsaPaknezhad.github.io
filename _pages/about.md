@@ -14,6 +14,21 @@ At Datarock, I've been at the forefront of spearheading cutting-edge AI methodol
 
 You can explore a selection of my projects on GitHub, each accompanied by a concise overview of its purpose and significance.
 
+## Enhancing Geological Mapping through Inpainting of Surface Infrastructure Artefacts 
+
+Remote sensing data such as aerial and satellite imagery serve as valuable tools for mapping geological  features.  However,  these  datasets  often  present  statistical  limitations  by  capturing only the surface of the Earth. This limitation becomes pronounced when regions of interest, such as economic mineralization or specific geological formations are studied mainly because surface infrastructure artefacts, including mines, roads, dams, and drill pads, inadvertently influence the signature  within  the  imagery.  Such  non-geological  artefacts  interfere  with  machine  learning models when focused on geological responses, necessitating the masking or removal of these artefacts.
+
+This  project  underscores  the  significance  of  inpainting  methodologies  in  enhancing  the accuracy and reliability of geological mapping based on aerial and satellite imagery. By 
+effectively  removing  surface  infrastructure  artefacts  and  inpainting  missing  spatial  data,  these techniques  enable  more  precise  prospectivity  mapping  and  facilitate  the  advancement  of geological understanding and exploration strategies in diverse landscapes. 
+
+This works is accepted for oral presentation at the Artificial Intelligence for Geological Modelling and Mapping conference. 
+
+
+<p align="center">
+<img src="/images/Inpainting_diagram.jpg" width=800>
+</p>
+
+
 ## Self-Supervised Learning on the Coasts of Antarctica: A Fun Project
 
 In this fun project, we employed self-supervised learning to train a model on the data of the coasts of Antarctica. Our objective was to identify regions along the Antarctic coasts with similar geological characteristics. The model training focused solely on the coastal areas. Upon training the model on the coasts of Antarctica, features were extracted for each tile and passed to a clustering algorithm. The clustering process assigned each tile to a cluster, with different colors representing distinct clusters. These clusters were then projected back onto the map, revealing regions with similar geological characteristics.
