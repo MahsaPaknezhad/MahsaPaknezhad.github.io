@@ -23,7 +23,7 @@ artefacts.
 Recent  advancements  in  machine  learning  and  image  processing  demand  comprehensive datasets  devoid  of  missing  data.  To  address  this  challenge,  various  imputation  methods  have been developed for inpainting missing spatial data. Among these methods, diffusion techniques emerge  as  modern,  state-of-the-art  approaches  for  inpainting  data  based  on  surrounding geological context. 
 
 <p align="center">
-<img src="/images/Inpainting_diagram.jpg" width=800>
+<img src="/images/Inpainting_diagram2.jpg" width=800>
 </p> 
 
 
