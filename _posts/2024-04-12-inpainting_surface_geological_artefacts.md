@@ -14,7 +14,7 @@ tags:
   - Sentinel2
 ---
 
-## Enhancing Geological Mapping through Inpainting of Surface Infrastructure Artefacts 
+## Enhancing Geological Mapping Through Inpainting of Surface Infrastructure Artefacts 
 
 Remote sensing data such as aerial and satellite imagery serve as valuable tools for mapping geological  features.  However,  these  datasets  often  present  statistical  limitations  by  capturing only the surface of the Earth. This limitation becomes pronounced when regions of interest, such as economic mineralization or specific geological formations are studied mainly because surface infrastructure artefacts, including mines, roads, dams, and drill pads, inadvertently influence the signature  within  the  imagery.  Such  non-geological  artefacts  interfere  with  machine  learning models when focused on geological responses, necessitating the masking or removal of these 
 artefacts. 

@@ -14,7 +14,7 @@ At Datarock, I've been at the forefront of spearheading cutting-edge AI methodol
 
 You can explore a selection of my projects on GitHub, each accompanied by a concise overview of its purpose and significance.
 
-## Enhancing Geological Mapping through Inpainting of Surface Infrastructure Artefacts 
+## Enhancing Geological Mapping Through Inpainting of Surface Infrastructure Artefacts 
 
 This  project  underscores  the  significance  of  inpainting  methodologies  in  enhancing  the accuracy and reliability of geological mapping based on aerial and satellite imagery. By 
 effectively  removing  surface  infrastructure  artefacts  and  inpainting  missing  spatial  data,  these techniques  enable  more  precise  prospectivity  mapping  and  facilitate  the  advancement  of geological understanding and exploration strategies in diverse landscapes. 
