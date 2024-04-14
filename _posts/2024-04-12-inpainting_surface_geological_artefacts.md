@@ -14,13 +14,16 @@ tags:
   - Sentinel2
 ---
 
-
 ## Enhancing Geological Mapping through Inpainting of Surface Infrastructure Artefacts 
 
 Remote sensing data such as aerial and satellite imagery serve as valuable tools for mapping geological  features.  However,  these  datasets  often  present  statistical  limitations  by  capturing only the surface of the Earth. This limitation becomes pronounced when regions of interest, such as economic mineralization or specific geological formations are studied mainly because surface infrastructure artefacts, including mines, roads, dams, and drill pads, inadvertently influence the signature  within  the  imagery.  Such  non-geological  artefacts  interfere  with  machine  learning models when focused on geological responses, necessitating the masking or removal of these 
 artefacts. 
 
 Recent  advancements  in  machine  learning  and  image  processing  demand  comprehensive datasets  devoid  of  missing  data.  To  address  this  challenge,  various  imputation  methods  have been developed for inpainting missing spatial data. Among these methods, diffusion techniques emerge  as  modern,  state-of-the-art  approaches  for  inpainting  data  based  on  surrounding geological context. 
+
+<p align="center">
+<img src="/images/Inpainting_diagram.jpg" width=800>
+</p> 
 
 ## Multi-channel Inpainting Model for Data Cleaning
 
@@ -33,15 +36,12 @@ Despite the advantages of this unified approach, existing AI frameworks often la
 This  porject  underscores  the  significance  of  inpainting  methodologies  in  enhancing  the accuracy and reliability of geological mapping based on aerial and satellite imagery. By 
 effectively  removing  surface  infrastructure  artefacts  and  inpainting  missing  spatial  data,  these techniques  enable  more  precise  prospectivity  mapping  and  facilitate  the  advancement  of geological understanding and exploration strategies in diverse landscapes.
 
-Figure shows how our multi-channel inpainting model is used to clean the roads in the 12-channel multispectral imagery (Sentinel-2) data of North Flinders range. 
+Figure above shows how our multi-channel inpainting model is used to clean the roads in the 12-channel multispectral imagery (Sentinel-2) data of North Flinders range. 
 
-<p align="center">
-<img src="/images/Inpainting_diagram.jpg" width=800>
-</p> 
 
 ## Downstream Tasks after Data Cleaning
 
-One of the widely used AI models in many of our projects is our self-supervised learning model that is custom-built for analyzing geological imagery. By leveraging our innovative multi-channel self-supervised learning approach, we've been able to extract invaluable features. These features play a pivotal role in downstream tasks such as clustering, which enables the identification of similar geological features or creation of similarity maps that point out regions that have similar attributes as a reference region.
+One of the widely used AI models in many of our projects is our self-supervised learning model that is custom-built for analyzing geological imagery. By leveraging our innovative multi-channel self-supervised learning approach, we've been able to extract invaluable features. These features play a pivotal role in downstream tasks such as clustering (see Figure below), which enables the identification of similar geological features or creation of similarity maps that point out regions that have similar attributes as a reference region.
 
 
 <p align="center">
