@@ -1,6 +1,6 @@
 ---
 title: 'Enhancing Geological Mapping through Inpainting of Surface Infrastructure Artefacts '
-date: 2023-12-10
+date: 2024-04-12
 permalink: /posts/2024/04/inpainting-surface-geological-artefacts/
 header-includes:
    - \usepackage{amssymb}
@@ -14,20 +14,22 @@ tags:
   - Sentinel2
 ---
 
+Remote sensing data such as aerial and satellite imagery serve as valuable tools for mapping geological  features.  However,  these  datasets  often  present  statistical  limitations  by  capturing only the surface of the Earth. This limitation becomes pronounced when regions of interest, such as economic mineralization or specific geological formations are studied mainly because surface infrastructure artefacts, including mines, roads, dams, and drill pads, inadvertently influence the signature  within  the  imagery.  Such  non-geological  artefacts  interfere  with  machine  learning models when focused on geological responses, necessitating the masking or removal of these 
+artefacts.
+
 ## Enhancing Geological Mapping Through Inpainting of Surface Infrastructure Artefacts 
 
-Remote sensing data such as aerial and satellite imagery serve as valuable tools for mapping geological  features.  However,  these  datasets  often  present  statistical  limitations  by  capturing only the surface of the Earth. This limitation becomes pronounced when regions of interest, such as economic mineralization or specific geological formations are studied mainly because surface infrastructure artefacts, including mines, roads, dams, and drill pads, inadvertently influence the signature  within  the  imagery.  Such  non-geological  artefacts  interfere  with  machine  learning models when focused on geological responses, necessitating the masking or removal of these 
-artefacts. 
-
+ 
 Recent  advancements  in  machine  learning  and  image  processing  demand  comprehensive datasets  devoid  of  missing  data.  To  address  this  challenge,  various  imputation  methods  have been developed for inpainting missing spatial data. Among these methods, diffusion techniques emerge  as  modern,  state-of-the-art  approaches  for  inpainting  data  based  on  surrounding geological context. 
 
 <p align="center">
 <img src="/images/Inpainting_diagram.jpg" width=800>
 </p> 
 
-## Multi-channel Inpainting Model for Data Cleaning
 
 In  the  field  of  computer  vision  and  artificial  intelligence  (AI),  existing  inpainting  models, including diffusion models, are predominantly designed for processing natural images composed of  the  standard  red,  green,  and  blue  (RGB)  colour  channels.  However,  in  remote  sensing applications, image  data often  consists of  more  than just the three  RGB bands.  This expanded dataset  may  include  numerous  spectral  bands,  each  providing  valuable  information  about the geological features present. 
+
+## Multi-channel Inpainting Model for Data Cleaning
 
 Traditionally, one approach to address this complexity involves treating each spectral band as a  separate  greyscale  image  and  training  individual  inpainting  models  for  each  band.  While feasible, this method overlooks the potential benefits of leveraging the inter-band relationships inherent  in  multi-band  imagery.  A  more  effective  strategy  entails  training  a  single  inpainting model capable of processing all bands simultaneously. By doing so, the model can better exploit the intricate relationships between spectral bands to inpaint missing regions in a more realistic manner. 
 
