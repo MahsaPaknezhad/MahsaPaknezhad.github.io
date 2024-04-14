@@ -24,7 +24,7 @@ Recent  advancements  in  machine  learning  and  image  processing  demand  com
 
 
 <p align="center">
-<img src="/images/Inpainting_model.jpg" width=800>
+<img src="/images/Inpainting_diagram2.jpg" width=800>
 </p> 
 
 
