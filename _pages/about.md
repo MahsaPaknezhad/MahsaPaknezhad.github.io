@@ -19,7 +19,7 @@ You can explore a selection of my projects on GitHub, each accompanied by a conc
 This  project  underscores  the  significance  of  inpainting  methodologies  in  enhancing  the accuracy and reliability of geological mapping based on aerial and satellite imagery. By 
 effectively  removing  surface  infrastructure  artefacts  and  inpainting  missing  spatial  data,  these techniques  enable  more  precise  prospectivity  mapping  and  facilitate  the  advancement  of geological understanding and exploration strategies in diverse landscapes. 
 
-This works is accepted for oral presentation at the Artificial Intelligence for Geological Modelling and Mapping conference. 
+This work is accepted for oral presentation at the *Artificial Intelligence for Geological Modelling and Mapping* conference. 
 
 
 <p align="center">
