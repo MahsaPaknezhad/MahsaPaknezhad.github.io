@@ -50,7 +50,7 @@ One of the widely used AI models in many of our projects is our self-supervised 
 
 
 <p align="center">
-<img src="/images/downstream_tasks.jpg" width=800>
+<img src="/images/downstream_tasks2.jpg" width=800>
 </p> 
 
 ## Conclusion
