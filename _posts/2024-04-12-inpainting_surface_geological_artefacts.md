@@ -17,6 +17,8 @@ tags:
 Remote sensing data such as aerial and satellite imagery serve as valuable tools for mapping geological  features.  However,  these  datasets  often  present  statistical  limitations  by  capturing only the surface of the Earth. This limitation becomes pronounced when regions of interest, such as economic mineralization or specific geological formations are studied mainly because surface infrastructure artefacts, including mines, roads, dams, and drill pads, inadvertently influence the signature  within  the  imagery.  Such  non-geological  artefacts  interfere  with  machine  learning models when focused on geological responses, necessitating the masking or removal of these 
 artefacts.
 
+In this project, our goal is to develop an algorithm capable of replacing these artifacts with realistic data, presenting a superior solution to merely removing or masking them. To achieve this objective, we leverage latent diffusion models for inpainting the missing and corrupted segments of the input data.
+
 ## Enhancing Geological Mapping Through Inpainting of Surface Infrastructure Artefacts 
 
  
@@ -24,7 +26,7 @@ Recent  advancements  in  machine  learning  and  image  processing  demand  com
 
 
 <p align="center">
-<img src="/images/Inpainting_diagram2.jpg" width=800>
+<img src="/images/Inpainting_diagram3.jpg" width=800>
 </p> 
 
 
@@ -39,7 +41,7 @@ Despite the advantages of this unified approach, existing AI frameworks often la
 This  porject  underscores  the  significance  of  inpainting  methodologies  in  enhancing  the accuracy and reliability of geological mapping based on aerial and satellite imagery. By 
 effectively  removing  surface  infrastructure  artefacts  and  inpainting  missing  spatial  data,  these techniques  enable  more  precise  prospectivity  mapping  and  facilitate  the  advancement  of geological understanding and exploration strategies in diverse landscapes.
 
-Figure above shows how our multi-channel inpainting model is used to clean the roads in the 12-channel multispectral imagery (Sentinel-2) data of North Flinders range. 
+Figure above shows how our multi-channel inpainting model is used to inpaint the roads in the 12-channel multispectral imagery (Sentinel-2) data of North Flinders range with realistic data. Once the input data is cleaned, further advanced AI models are applied to the cleaned data for mining and exploration purposes. 
 
 
 ## Downstream Tasks after Data Cleaning
