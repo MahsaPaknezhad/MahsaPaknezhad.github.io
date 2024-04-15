@@ -55,7 +55,7 @@ One of the widely used AI models in many of our projects is our self-supervised 
 
 ## Conclusion
 
-In this blog, we introduced a multi-channel inpainting model tailored specifically for geological imagery. Our proposed model performs geological imagery data cleaning by inpainting areas containing missing data or surface infrastructure artefacts such as mines, roads, dams, and drill pads.
+In this blog, we introduced a multi-channel inpainting model tailored specifically for geological imagery. Our proposed model performs geological imagery data cleaning by inpainting areas with missing data or surface infrastructure artefacts such as mines, roads, dams, and drill pads.
 
 
 
