@@ -26,7 +26,7 @@ Recent  advancements  in  machine  learning  and  image  processing  demand  com
 
 
 <p align="center">
-<img src="/images/Inpainting_diagram3.jpg" width=800>
+<img src="/images/Inpainting_diagram.jpg" width=800>
 </p> 
 
 
@@ -50,7 +50,7 @@ One of the widely used AI models in many of our projects is our self-supervised 
 
 
 <p align="center">
-<img src="/images/downstream_tasks2.jpg" width=800>
+<img src="/images/downstream_tasks.jpg" width=800>
 </p> 
 
 ## Conclusion
